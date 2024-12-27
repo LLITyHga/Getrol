@@ -8,10 +8,13 @@
 import SwiftUI
 
 @main
-struct GetrolApp: App {
+struct MainViewApp: App {
+
+    @StateObject private var appCoordinator: AppCoordinator = AppCoordinator()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            appCoordinator.rootView
         }
     }
 }

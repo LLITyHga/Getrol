@@ -1,0 +1,117 @@
+{
+  "sourceLanguage" : "uk",
+  "strings" : {
+    "common.error.input" : {
+
+    },
+    "Hello, world!" : {
+
+    },
+    "home.button.curator" : {
+      "comment" : "Curator button title"
+    },
+    "home.button.donate" : {
+
+    },
+    "home.button.mentor" : {
+      "comment" : "Mentor button title"
+    },
+    "home.button.purchase" : {
+      "comment" : "Purchase button title"
+    },
+    "home.button.sponsorship" : {
+      "comment" : "Sponsorship button title"
+    },
+    "home.button.teacher" : {
+      "comment" : "Teacher button title"
+    },
+    "home.button.work" : {
+      "comment" : "Work button title"
+    },
+    "home.text.eventsPoster" : {
+
+    },
+    "home.text.limitedAccess" : {
+
+    },
+    "home.text.limitedAccessDescription" : {
+
+    },
+    "home.text.participate" : {
+
+    },
+    "home.text.profileCategories" : {
+
+    },
+    "home.text.spotsLeft" : {
+
+    },
+    "home.text.unauthorizatedName" : {
+
+    },
+    "MainScreen" : {
+
+    },
+    "onboarding.button.guest" : {
+
+    },
+    "onboarding.button.login" : {
+
+    },
+    "onboarding.button.next" : {
+
+    },
+    "onboarding.button.registration" : {
+
+    },
+    "onboarding.button.skip" : {
+
+    },
+    "onboarding.description.text" : {
+
+    },
+    "onboarding.label.haveAccount" : {
+
+    },
+    "onboarding.page.body0" : {
+
+    },
+    "onboarding.page.body1" : {
+
+    },
+    "onboarding.page.body2" : {
+
+    },
+    "onboarding.page.body3" : {
+
+    },
+    "onboarding.page.subtitle" : {
+
+    },
+    "onboarding.page.title0" : {
+
+    },
+    "onboarding.page.title1" : {
+
+    },
+    "onboarding.page.title2" : {
+
+    },
+    "onboarding.page.title3" : {
+
+    },
+    "onboarding.popup.message" : {
+
+    },
+    "onboarding.popup.title" : {
+
+    },
+    "onboarding.title.text" : {
+
+    },
+    "view" : {
+
+    }
+  },
+  "version" : "1.0"
+}
