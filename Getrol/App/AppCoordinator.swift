@@ -35,7 +35,7 @@ private extension AppCoordinator {
     }
     
     func showOnboardingScreen() {
-        let onboardingCoordinator = OnboardingCoordinator()
+        let onboardingCoordinator = WelcomeFlowCoordinator()
         rootView = AnyView(onboardingCoordinator)
     }
 }

@@ -28,7 +28,7 @@ private extension OnboardingView {
     @ViewBuilder
     func TextStack() -> some View {
         VStack(spacing: 0) {
-            Text(LS.Onboarding.titleText)
+ //           Text(LS.Onboarding.titleText)
 //                .font(.h3)
 //                .foregroundStyle(.black100)
 //            

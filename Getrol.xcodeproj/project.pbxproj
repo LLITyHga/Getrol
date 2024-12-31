@@ -21,8 +21,8 @@
 		F61C06732D1D5F15006D84A2 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C066C2D1D5BD9006D84A2 /* OnboardingPage.swift */; };
 		F61C06742D1D5F30006D84A2 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C06642D1D5B1D006D84A2 /* OnboardingViewModel.swift */; };
 		F61C06752D1D5F4D006D84A2 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C06682D1D5B67006D84A2 /* OnboardingView.swift */; };
-		F61C067C2D1D6E44006D84A2 /* InitialSetupCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C067B2D1D6E44006D84A2 /* InitialSetupCoordinator.swift */; };
-		F61C067D2D1D6E44006D84A2 /* InitialSetupCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C067B2D1D6E44006D84A2 /* InitialSetupCoordinator.swift */; };
+		F61C067C2D1D6E44006D84A2 /* WelcomeFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C067B2D1D6E44006D84A2 /* WelcomeFlowCoordinator.swift */; };
+		F61C067D2D1D6E44006D84A2 /* WelcomeFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C067B2D1D6E44006D84A2 /* WelcomeFlowCoordinator.swift */; };
 		F61C06802D1D6F40006D84A2 /* WelcomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C067F2D1D6F40006D84A2 /* WelcomeFlow.swift */; };
 		F61C06812D1D6F40006D84A2 /* WelcomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C067F2D1D6F40006D84A2 /* WelcomeFlow.swift */; };
 		F61C06842D1D7A14006D84A2 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C06832D1D7A14006D84A2 /* WelcomeView.swift */; };
@@ -63,6 +63,8 @@
 		F63A39382D1C3F6A0061FDE5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A39372D1C3F6A0061FDE5 /* Data.swift */; };
 		F63A393A2D1C3F8C0061FDE5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A39392D1C3F8C0061FDE5 /* Color.swift */; };
 		F63A393C2D1C3FB20061FDE5 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A393B2D1C3FB20061FDE5 /* UserDefaults.swift */; };
+		F6AA44782D23F66300C1BB42 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */; };
+		F6AA44792D23F66300C1BB42 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +105,7 @@
 		F61C06682D1D5B67006D84A2 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		F61C066A2D1D5B8F006D84A2 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		F61C066C2D1D5BD9006D84A2 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
-		F61C067B2D1D6E44006D84A2 /* InitialSetupCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSetupCoordinator.swift; sourceTree = "<group>"; };
+		F61C067B2D1D6E44006D84A2 /* WelcomeFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFlowCoordinator.swift; sourceTree = "<group>"; };
 		F61C067F2D1D6F40006D84A2 /* WelcomeFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFlow.swift; sourceTree = "<group>"; };
 		F61C06832D1D7A14006D84A2 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		F61C06872D1D7CCB006D84A2 /* WelcomeFlowViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFlowViewModelImpl.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		F63A39372D1C3F6A0061FDE5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F63A39392D1C3F8C0061FDE5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F63A393B2D1C3FB20061FDE5 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -241,6 +244,7 @@
 		F61C067E2D1D6E89006D84A2 /* WelcomeFlow */ = {
 			isa = PBXGroup;
 			children = (
+				F6AA447A2D23F66900C1BB42 /* Model */,
 				F61C068A2D1D8567006D84A2 /* ViewModel */,
 				F61C06862D1D7A3D006D84A2 /* View */,
 				F61C06822D1D6F56006D84A2 /* WelcomeCoordinator */,
@@ -252,7 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				F61C067F2D1D6F40006D84A2 /* WelcomeFlow.swift */,
-				F61C067B2D1D6E44006D84A2 /* InitialSetupCoordinator.swift */,
+				F61C067B2D1D6E44006D84A2 /* WelcomeFlowCoordinator.swift */,
 			);
 			path = WelcomeCoordinator;
 			sourceTree = "<group>";
@@ -413,6 +417,14 @@
 				F61C065D2D1D5385006D84A2 /* OnboardingGroup */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F6AA447A2D23F66900C1BB42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -593,12 +605,13 @@
 				F61C06712D1D5EE8006D84A2 /* OnboardingModel.swift in Sources */,
 				F61C06892D1D7CCB006D84A2 /* WelcomeFlowViewModelImpl.swift in Sources */,
 				F61C06742D1D5F30006D84A2 /* OnboardingViewModel.swift in Sources */,
-				F61C067C2D1D6E44006D84A2 /* InitialSetupCoordinator.swift in Sources */,
+				F61C067C2D1D6E44006D84A2 /* WelcomeFlowCoordinator.swift in Sources */,
 				F61C06722D1D5EFE006D84A2 /* OnboardingWelcomeView.swift in Sources */,
 				F63A393A2D1C3F8C0061FDE5 /* Color.swift in Sources */,
 				F61C066E2D1D5E7E006D84A2 /* OnboardingCoordinator.swift in Sources */,
 				F61C06802D1D6F40006D84A2 /* WelcomeFlow.swift in Sources */,
 				F63A38E72D1C281B0061FDE5 /* MainViewApp.swift in Sources */,
+				F6AA44782D23F66300C1BB42 /* WelcomeModel.swift in Sources */,
 				F61C06852D1D7A14006D84A2 /* WelcomeView.swift in Sources */,
 				F63A39012D1C33340061FDE5 /* Font.swift in Sources */,
 				F63A38E62D1C281B0061FDE5 /* ContentView.swift in Sources */,
@@ -615,13 +628,14 @@
 				F61C06652D1D5B1D006D84A2 /* OnboardingViewModel.swift in Sources */,
 				F61C066D2D1D5BD9006D84A2 /* OnboardingPage.swift in Sources */,
 				F61C065C2D1D536F006D84A2 /* OnboardingFlow.swift in Sources */,
+				F6AA44792D23F66300C1BB42 /* WelcomeModel.swift in Sources */,
 				F61C066F2D1D5E91006D84A2 /* OnboardingCoordinator.swift in Sources */,
 				F61C066B2D1D5B8F006D84A2 /* OnboardingModel.swift in Sources */,
 				F61C06842D1D7A14006D84A2 /* WelcomeView.swift in Sources */,
 				F61C06672D1D5B45006D84A2 /* OnboardingWelcomeView.swift in Sources */,
 				F63A38F82D1C2BE20061FDE5 /* Injection.swift in Sources */,
 				F61C06692D1D5B67006D84A2 /* OnboardingView.swift in Sources */,
-				F61C067D2D1D6E44006D84A2 /* InitialSetupCoordinator.swift in Sources */,
+				F61C067D2D1D6E44006D84A2 /* WelcomeFlowCoordinator.swift in Sources */,
 				F61C06882D1D7CCB006D84A2 /* WelcomeFlowViewModelImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -774,10 +788,12 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F6QN526Y2A;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Ваше місцезнаходження потрібне для роботи додатку у фоновому режимі.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ми використовуємо його, щоб рекомендувати найближчі станції.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -813,10 +829,12 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F6QN526Y2A;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Ваше місцезнаходження потрібне для роботи додатку у фоновому режимі.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ми використовуємо його, щоб рекомендувати найближчі станції.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

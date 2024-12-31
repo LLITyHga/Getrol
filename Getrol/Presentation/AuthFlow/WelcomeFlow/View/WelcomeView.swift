@@ -15,18 +15,18 @@ struct WelcomeView: View {
             Spacer()
             
             VStack {
-                Text("Getrol")
+                Text(LS.Welcome.title)
                     .font(.custom("Gilroy-ExtraBold", size: 64))
                     .fontWeight(.regular)
                     .foregroundStyle(.text)
                     .padding(.bottom, 56)
                 
-                Text("Вітаємо у Getrol!")
+                Text(LS.Welcome.greeting)
                     .font(.body)
                     .foregroundStyle(.black)
                     .padding(.bottom, 8)
                 
-                Text("Шукай найкращі ціни на пальне разом із нашим додатком.")
+                Text(LS.Welcome.description)
                     .font(.body)
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.black)
@@ -37,7 +37,7 @@ struct WelcomeView: View {
             Button(action: {
                 viewModel.proceedFromWelcome()
             }) {
-                Text("Поїхали")
+                Text(LS.Welcome.buttonNext)
                     .frame(maxWidth: .infinity, minHeight: 48)
                     .foregroundStyle(.text)
                     .background(
@@ -53,6 +53,8 @@ struct WelcomeView: View {
     }
 }
 
+//MARK: Location View
+
 struct LocationPermissionView: View {
     @ObservedObject var viewModel: WelcomeFlowViewModelImpl
     
@@ -65,12 +67,12 @@ struct LocationPermissionView: View {
                     .padding(.horizontal, 75)
                     .padding(.bottom, 56)
                 
-                Text("Локація")
+                Text(LS.LocationPermission.title)
                     .font(.h1)
                     .foregroundStyle(.black)
                     .padding(.bottom, 8)
                 
-                Text("Getrol потребує доступу до вашого місцезнаходження для коректної роботи та надання основних послуг.")
+                Text(LS.LocationPermission.description)
                     .font(.body)
                     .padding(.horizontal, 16)
                     .multilineTextAlignment(.center)
@@ -80,9 +82,10 @@ struct LocationPermissionView: View {
             Spacer()
             
             Button(action: {
-                viewModel.proceedFromLocationPermission()
+                viewModel.requestLocationPermission()
+                viewModel.handlePermissionStatus()
             }) {
-                Text("Далі")
+                Text(LS.LocationPermission.buttonNext)
                     .foregroundStyle(.text)
             }
             .padding(.bottom, 48)
@@ -93,23 +96,75 @@ struct LocationPermissionView: View {
         .navigationBarBackButtonHidden(true)
     }
 }
+//MARK: SelectFuel View
 
 struct FuelTypeSelectionView: View {
     @ObservedObject var viewModel: WelcomeFlowViewModelImpl
+    @State private var selectedFuel = 0
     
     var body: some View {
         VStack {
-            Text("Select Your Fuel Type")
-                .font(.title)
-            Button("Gasoline") {
-                viewModel.proceedFromFuelTypeSelection()
+            Spacer()
+            
+            VStack {
+                Image(.petrolImg)
+                
+                Text(LS.FuelTypeSelection.title)
+                    .font(.h1)
+                
+                FuelSwitcherView()
+                
+                Text(LS.FuelTypeSelection.note)
+                    .font(.custom("Gilroy-Medium", size: 14)
+                    .weight(.regular))
+                    .foregroundStyle(.text)
             }
             
+            Spacer()
+            
+            Button(action: {
+                viewModel.proceedFromLocationPermission()
+            }) {
+                Text(LS.FuelTypeSelection.buttonNext)
+                    .foregroundStyle(.text)
+            }
+            .padding(.bottom, 48)
+            .padding(.horizontal, 25)
         }
         .background(.bg)
         .navigationBarBackButtonHidden(true)
     }
 }
+
+//MARK: Switcher for choose fuel
+
+struct FuelSwitcherView: View {
+    @State private var selectedFuel = 0
+
+    let options = [LS.FuelTypeSelection.petrolOption, LS.FuelTypeSelection.dieselOption]
+    let colors: [Color] = [.line, .blur]
+
+    var body: some View {
+        HStack(spacing: 0) {
+            ForEach(0..<options.count, id: \.self) { index in
+                Text(options[index])
+                    .font(.body)
+                    .foregroundColor(selectedFuel == index ? .bg : .text)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(selectedFuel == index ? colors[0] : colors[1])
+                    .cornerRadius(8)
+                    .onTapGesture {
+                        withAnimation {
+                            selectedFuel = index
+                        }
+                    }
+            }
+        }
+        .padding()
+    }
+}
+//MARK: Icon for location View
 
 struct LocationIconView: View {
     var body: some View {
@@ -135,6 +190,7 @@ struct LocationIconView: View {
         }
     }
 }
+
 
 #Preview {
     WelcomeFlowCoordinator()

@@ -4,49 +4,98 @@
     "common.error.input" : {
 
     },
+    "fuelTypeSelection.button.next" : {
+      "comment" : "Next button title",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Далі"
+          }
+        }
+      }
+    },
+    "fuelTypeSelection.option.diesel" : {
+      "comment" : "Diesel option",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дизель"
+          }
+        }
+      }
+    },
+    "fuelTypeSelection.option.petrol" : {
+      "comment" : "Petrol option",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бензин"
+          }
+        }
+      }
+    },
+    "fuelTypeSelection.text.note" : {
+      "comment" : "Fuel type selection note",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "*Змінюється в налаштуваннях у будь-який момент."
+          }
+        }
+      }
+    },
+    "fuelTypeSelection.text.title" : {
+      "comment" : "Fuel type selection screen title",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Який тип пального використовуєте?"
+          }
+        }
+      }
+    },
     "Hello, world!" : {
 
     },
-    "home.button.curator" : {
-      "comment" : "Curator button title"
+    "locationPermission.button.next" : {
+      "comment" : "Next button title",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Далі"
+          }
+        }
+      }
     },
-    "home.button.donate" : {
-
+    "locationPermission.text.description" : {
+      "comment" : "Location permission description",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getrol потребує доступу до вашого місцезнаходження для коректної роботи та надання основних послуг."
+          }
+        }
+      }
     },
-    "home.button.mentor" : {
-      "comment" : "Mentor button title"
+    "locationPermission.text.title" : {
+      "comment" : "Location permission screen title",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Локація"
+          }
+        }
+      }
     },
-    "home.button.purchase" : {
-      "comment" : "Purchase button title"
-    },
-    "home.button.sponsorship" : {
-      "comment" : "Sponsorship button title"
-    },
-    "home.button.teacher" : {
-      "comment" : "Teacher button title"
-    },
-    "home.button.work" : {
-      "comment" : "Work button title"
-    },
-    "home.text.eventsPoster" : {
-
-    },
-    "home.text.limitedAccess" : {
-
-    },
-    "home.text.limitedAccessDescription" : {
-
-    },
-    "home.text.participate" : {
-
-    },
-    "home.text.profileCategories" : {
-
-    },
-    "home.text.spotsLeft" : {
-
-    },
-    "home.text.unauthorizatedName" : {
+    "Main Screen" : {
 
     },
     "MainScreen" : {
@@ -111,6 +160,50 @@
     },
     "view" : {
 
+    },
+    "welcome.button.next" : {
+      "comment" : "Next button title",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поїхали"
+          }
+        }
+      }
+    },
+    "welcome.text.description" : {
+      "comment" : "Welcome description",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шукай найкращі ціни на пальне разом із нашим додатком."
+          }
+        }
+      }
+    },
+    "welcome.text.greeting" : {
+      "comment" : "Welcome greeting",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вітаємо у Getrol!"
+          }
+        }
+      }
+    },
+    "welcome.text.title" : {
+      "comment" : "Welcome screen title",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getrol"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

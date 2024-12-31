@@ -30,7 +30,7 @@ struct WelcomeFlowCoordinator: View, WelcomeFlowNavigation {
     }
 
     private func makeViewModel() -> WelcomeFlowViewModelImpl {
-        WelcomeFlowViewModelImpl(navigation: self)
+        return WelcomeFlowViewModelImpl(navigation: self, welcomeModel: WelcomeModel())
     }
 
     @ViewBuilder
@@ -46,4 +46,7 @@ struct WelcomeFlowCoordinator: View, WelcomeFlowNavigation {
             Text("Main Screen")
         }
     }
+    
 }
+
+

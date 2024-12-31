@@ -48,20 +48,24 @@ struct LocalizedStrings {
         }
     }
     
-    struct Home {
-        static let unauthorizatedName = NSLocalizedString("home.text.unauthorizatedName", comment: "")
-        static let eventsPoster = NSLocalizedString("home.text.eventsPoster", comment: "")
-        static let donate = NSLocalizedString("home.button.donate", comment: "")
-        static let participate = NSLocalizedString("home.text.participate", comment: "")
-        static let limitedAccess = NSLocalizedString("home.text.limitedAccess", comment: "")
-        static let limitedAccessDescription = NSLocalizedString("home.text.limitedAccessDescription", comment: "")
-        static let profileCategories = NSLocalizedString("home.text.profileCategories", comment: "")
-        static let spotsLeft = NSLocalizedString("home.text.spotsLeft", comment: "")
-        static let work = NSLocalizedString("home.button.work", comment: "Work button title")
-        static let sponsorship = NSLocalizedString("home.button.sponsorship", comment: "Sponsorship button title")
-        static let purchase = NSLocalizedString("home.button.purchase", comment: "Purchase button title")
-        static let mentor = NSLocalizedString("home.button.mentor", comment: "Mentor button title")
-        static let teacher = NSLocalizedString("home.button.teacher", comment: "Teacher button title")
-        static let curator = NSLocalizedString("home.button.curator", comment: "Curator button title")
+    struct Welcome {
+        static let title = NSLocalizedString("welcome.text.title", comment: "Welcome screen title")
+        static let greeting = NSLocalizedString("welcome.text.greeting", comment: "Welcome greeting")
+        static let description = NSLocalizedString("welcome.text.description", comment: "Welcome description")
+        static let buttonNext = NSLocalizedString("welcome.button.next", comment: "Next button title")
+    }
+
+    struct LocationPermission {
+        static let title = NSLocalizedString("locationPermission.text.title", comment: "Location permission screen title")
+        static let description = NSLocalizedString("locationPermission.text.description", comment: "Location permission description")
+        static let buttonNext = NSLocalizedString("locationPermission.button.next", comment: "Next button title")
+    }
+
+    struct FuelTypeSelection {
+        static let title = NSLocalizedString("fuelTypeSelection.text.title", comment: "Fuel type selection screen title")
+        static let note = NSLocalizedString("fuelTypeSelection.text.note", comment: "Fuel type selection note")
+        static let buttonNext = NSLocalizedString("fuelTypeSelection.button.next", comment: "Next button title")
+        static let petrolOption = NSLocalizedString("fuelTypeSelection.option.petrol", comment: "Petrol option")
+        static let dieselOption = NSLocalizedString("fuelTypeSelection.option.diesel", comment: "Diesel option")
     }
 }
