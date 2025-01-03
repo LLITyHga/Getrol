@@ -83,7 +83,6 @@ struct LocationPermissionView: View {
             
             Button(action: {
                 viewModel.requestLocationPermission()
-                viewModel.handlePermissionStatus()
             }) {
                 Text(LS.LocationPermission.buttonNext)
                     .foregroundStyle(.text)
@@ -100,7 +99,6 @@ struct LocationPermissionView: View {
 
 struct FuelTypeSelectionView: View {
     @ObservedObject var viewModel: WelcomeFlowViewModelImpl
-    @State private var selectedFuel = 0
     
     var body: some View {
         VStack {
@@ -112,7 +110,7 @@ struct FuelTypeSelectionView: View {
                 Text(LS.FuelTypeSelection.title)
                     .font(.h1)
                 
-                FuelSwitcherView()
+                FuelSwitcherView(selectedFuel: $viewModel.selectedFuelType)
                 
                 Text(LS.FuelTypeSelection.note)
                     .font(.custom("Gilroy-Medium", size: 14)
@@ -123,7 +121,7 @@ struct FuelTypeSelectionView: View {
             Spacer()
             
             Button(action: {
-                viewModel.proceedFromLocationPermission()
+                viewModel.proceedFromFuelTypeSelection()
             }) {
                 Text(LS.FuelTypeSelection.buttonNext)
                     .foregroundStyle(.text)
@@ -139,7 +137,7 @@ struct FuelTypeSelectionView: View {
 //MARK: Switcher for choose fuel
 
 struct FuelSwitcherView: View {
-    @State private var selectedFuel = 0
+    @Binding var selectedFuel: Int
 
     let options = [LS.FuelTypeSelection.petrolOption, LS.FuelTypeSelection.dieselOption]
     let colors: [Color] = [.line, .blur]
@@ -164,6 +162,7 @@ struct FuelSwitcherView: View {
         .padding()
     }
 }
+
 //MARK: Icon for location View
 
 struct LocationIconView: View {

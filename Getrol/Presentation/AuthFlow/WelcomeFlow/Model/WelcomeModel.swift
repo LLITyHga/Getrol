@@ -12,48 +12,67 @@ import CoreLocation
 protocol WelcomeModelProtocol {
     var isPermissionGranted: Bool { get }
     var isPermissionChecked: Bool { get }
+    var selectedFuelType: Int { get set }
     func requestLocationPermission()
+    func setSelectedFuelType(_ type: Int)
+    func checkPermissionStatus()
 }
 
-class WelcomeModel: NSObject, ObservableObject, WelcomeModelProtocol, CLLocationManagerDelegate {
-    private let locationManager = CLLocationManager()
-    private let locationPermissionKey = "LocationPermissionGranted"
-    
-    @Published var locationStatus: CLAuthorizationStatus?
-    @Published var isPermissionGranted: Bool = false
-    @Published var isPermissionChecked: Bool = false // Вказує, що користувач відповів
-    
+protocol WelcomeModelDelegate: AnyObject {
+    func permissionStatusDidChange(isGranted: Bool)
+}
 
+class WelcomeModel: NSObject, WelcomeModelProtocol, CLLocationManagerDelegate {
+    private let locationManager = CLLocationManager()
+    weak var delegate: WelcomeModelDelegate?
+    
+    @Published var isPermissionGranted: Bool = UserDefaults.Local.isLocationPermissionGranted
+    @Published var isPermissionChecked: Bool = UserDefaults.Local.isLocationPermissionChecked
+    @Published var selectedFuelType: Int = UserDefaults.Local.selectedFuelType
+    
     override init() {
         super.init()
         locationManager.delegate = self
-        locationStatus = locationManager.authorizationStatus
-        isPermissionGranted = UserDefaults.standard.bool(forKey: locationPermissionKey)
+        isPermissionGranted = UserDefaults.Local.isLocationPermissionGranted
+        selectedFuelType = UserDefaults.Local.selectedFuelType
     }
     
     func requestLocationPermission() {
-        if locationStatus == .notDetermined {
+        let locationManager = CLLocationManager()
+
+        if locationManager.authorizationStatus == .notDetermined {
             locationManager.requestWhenInUseAuthorization()
-        } else {
-            checkPermissionStatus()
-        }
+              }
+        checkPermissionStatus()
+    }
+    
+    func setSelectedFuelType(_ type: Int) {
+        selectedFuelType = type
+        UserDefaults.Local.selectedFuelType = type
     }
     
     func checkPermissionStatus() {
-        locationStatus = locationManager.authorizationStatus
-        if locationStatus == .authorizedWhenInUse || locationStatus == .authorizedAlways {
+        let status = locationManager.authorizationStatus
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
             isPermissionGranted = true
-            UserDefaults.standard.set(true, forKey: locationPermissionKey)
+            UserDefaults.Local.isLocationPermissionGranted = true
         } else {
             isPermissionGranted = false
-            UserDefaults.standard.set(false, forKey: locationPermissionKey)
+            UserDefaults.Local.isLocationPermissionGranted = false
         }
-        isPermissionChecked = true // Після перевірки статусу
+        isPermissionChecked = true
+        UserDefaults.Local.isLocationPermissionChecked = true
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        DispatchQueue.main.async {
-            self.checkPermissionStatus()
+        guard !isPermissionChecked else { return }
+
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            isPermissionChecked = true
+            delegate?.permissionStatusDidChange(isGranted: true)
+        } else if status == .denied || status == .restricted {
+            isPermissionChecked = true
+            delegate?.permissionStatusDidChange(isGranted: false)
         }
     }
 }
