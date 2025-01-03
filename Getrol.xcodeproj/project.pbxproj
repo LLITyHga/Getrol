@@ -65,6 +65,8 @@
 		F63A393C2D1C3FB20061FDE5 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A393B2D1C3FB20061FDE5 /* UserDefaults.swift */; };
 		F6AA44782D23F66300C1BB42 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */; };
 		F6AA44792D23F66300C1BB42 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */; };
+		F6B046232D280D2B00D010D6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B046222D280D1E00D010D6 /* HomeView.swift */; };
+		F6B046242D280D2B00D010D6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B046222D280D1E00D010D6 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +148,7 @@
 		F63A39392D1C3F8C0061FDE5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F63A393B2D1C3FB20061FDE5 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModel.swift; sourceTree = "<group>"; };
+		F6B046222D280D1E00D010D6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -413,6 +416,7 @@
 		F63A393E2D1C49DB0061FDE5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F6B046262D280D6E00D010D6 /* HomeFlow */,
 				F61C067A2D1D6E1E006D84A2 /* AuthFlow */,
 				F61C065D2D1D5385006D84A2 /* OnboardingGroup */,
 			);
@@ -425,6 +429,22 @@
 				F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F6B046252D280D5600D010D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6B046222D280D1E00D010D6 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6B046262D280D6E00D010D6 /* HomeFlow */ = {
+			isa = PBXGroup;
+			children = (
+				F6B046252D280D5600D010D6 /* View */,
+			);
+			path = HomeFlow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -612,6 +632,7 @@
 				F61C06802D1D6F40006D84A2 /* WelcomeFlow.swift in Sources */,
 				F63A38E72D1C281B0061FDE5 /* MainViewApp.swift in Sources */,
 				F6AA44782D23F66300C1BB42 /* WelcomeModel.swift in Sources */,
+				F6B046242D280D2B00D010D6 /* HomeView.swift in Sources */,
 				F61C06852D1D7A14006D84A2 /* WelcomeView.swift in Sources */,
 				F63A39012D1C33340061FDE5 /* Font.swift in Sources */,
 				F63A38E62D1C281B0061FDE5 /* ContentView.swift in Sources */,
@@ -627,6 +648,7 @@
 				F61C06812D1D6F40006D84A2 /* WelcomeFlow.swift in Sources */,
 				F61C06652D1D5B1D006D84A2 /* OnboardingViewModel.swift in Sources */,
 				F61C066D2D1D5BD9006D84A2 /* OnboardingPage.swift in Sources */,
+				F6B046232D280D2B00D010D6 /* HomeView.swift in Sources */,
 				F61C065C2D1D536F006D84A2 /* OnboardingFlow.swift in Sources */,
 				F6AA44792D23F66300C1BB42 /* WelcomeModel.swift in Sources */,
 				F61C066F2D1D5E91006D84A2 /* OnboardingCoordinator.swift in Sources */,
