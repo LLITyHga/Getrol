@@ -67,6 +67,8 @@
 		F6AA44792D23F66300C1BB42 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */; };
 		F6B046232D280D2B00D010D6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B046222D280D1E00D010D6 /* HomeView.swift */; };
 		F6B046242D280D2B00D010D6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B046222D280D1E00D010D6 /* HomeView.swift */; };
+		F6E535002D2BDB98008D5F23 /* HomeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E534FF2D2BDB94008D5F23 /* HomeSheet.swift */; };
+		F6E535012D2BDB98008D5F23 /* HomeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E534FF2D2BDB94008D5F23 /* HomeSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +151,7 @@
 		F63A393B2D1C3FB20061FDE5 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModel.swift; sourceTree = "<group>"; };
 		F6B046222D280D1E00D010D6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F6E534FF2D2BDB94008D5F23 /* HomeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -434,6 +437,7 @@
 		F6B046252D280D5600D010D6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F6E534FF2D2BDB94008D5F23 /* HomeSheet.swift */,
 				F6B046222D280D1E00D010D6 /* HomeView.swift */,
 			);
 			path = View;
@@ -635,6 +639,7 @@
 				F6B046242D280D2B00D010D6 /* HomeView.swift in Sources */,
 				F61C06852D1D7A14006D84A2 /* WelcomeView.swift in Sources */,
 				F63A39012D1C33340061FDE5 /* Font.swift in Sources */,
+				F6E535012D2BDB98008D5F23 /* HomeSheet.swift in Sources */,
 				F63A38E62D1C281B0061FDE5 /* ContentView.swift in Sources */,
 				F61C06702D1D5ED1006D84A2 /* OnboardingFlow.swift in Sources */,
 				F63A39352D1C3E9F0061FDE5 /* LocalizedStrings.swift in Sources */,
@@ -647,6 +652,7 @@
 			files = (
 				F61C06812D1D6F40006D84A2 /* WelcomeFlow.swift in Sources */,
 				F61C06652D1D5B1D006D84A2 /* OnboardingViewModel.swift in Sources */,
+				F6E535002D2BDB98008D5F23 /* HomeSheet.swift in Sources */,
 				F61C066D2D1D5BD9006D84A2 /* OnboardingPage.swift in Sources */,
 				F6B046232D280D2B00D010D6 /* HomeView.swift in Sources */,
 				F61C065C2D1D536F006D84A2 /* OnboardingFlow.swift in Sources */,

@@ -10,6 +10,8 @@ import MapKit
 
 struct HomeView: View {
     
+    @State private var isSheetPresented = true
+    @State private var sheetDetent: PresentationDetent = .fraction(0.2)
     @State private var searchText = ""
     @State private var cameraPosition = MapCameraPosition.region(
         MKCoordinateRegion(
@@ -28,7 +30,7 @@ struct HomeView: View {
             VStack(spacing: 0) {
                 searchFeld()
                 
-                routeButtons()
+                RouteButtons()
                 Spacer()
             }
             .padding(.top, 24)
@@ -52,7 +54,7 @@ extension HomeView {
     }
     
     @ViewBuilder
-    func routeButtons() -> some View {
+    func RouteButtons() -> some View {
         HStack(spacing: 0) {
             Spacer()
             VStack(spacing: 0) {
@@ -61,19 +63,68 @@ extension HomeView {
                 }) {
                     Image(.routeImg)
                         .frame(width: 42, height: 42)
-                        
+                    
                 }
                 .padding(.vertical, 16)
                 .padding(.trailing, 16)
-
+                
                 Button(action: {
                     // do smtng
                 }) {
                     Image(.locationImg)
-                        .frame(width: 42, height: 42) // задайте потрібний розмір
+                        .frame(width: 42, height: 42)
                 }
                 .padding(.trailing, 16)
             }
         }
+        .sheet(isPresented: $isSheetPresented) {
+            HomeSheet(currentDetent: $sheetDetent)
+                .presentationDetents([.fraction(0.27), .large], selection: $sheetDetent)
+                .interactiveDismissDisabled(true) // Забороняє закриття свайпом
+                .onChange(of: sheetDetent) { old, newDetent in
+                    if newDetent == .fraction(0.2) {
+                        sheetDetent = .fraction(0.2)
+                    }
+                }
+        }
     }
+ //   @ViewBuilder
+     
 }
+
+
+
+//    import SwiftUI
+//
+//    struct ContentView: View {
+//        @State private var isSheetPresented = true
+//        @State private var sheetDetent: PresentationDetent = .fraction(0.2)
+//        
+//        var body: some View {
+//            Button("Відкрити Sheet") {
+//                isSheetPresented = true
+//            }
+//            .sheet(isPresented: $isSheetPresented) {
+//                SheetView()
+//                    .presentationDetents([.fraction(0.2), .large], selection: $sheetDetent)
+//                    .interactiveDismissDisabled(true) // Забороняє закриття свайпом
+//                    .onChange(of: sheetDetent) { old, newDetent in
+//                        if newDetent == .fraction(0.2) {
+//                            // Повертаємо положення на .fraction(0.2), якщо намагаються свайпнути вниз
+//                            sheetDetent = .fraction(0.2)
+//                        }
+//                    }
+//            }
+//        }
+//    }
+//
+//    struct SheetView: View {
+//        var body: some View {
+//            VStack {
+//                Text("Sheet View")
+//                    .font(.title)
+//                    .padding()
+//                Spacer()
+//            }
+//        }
+//    }

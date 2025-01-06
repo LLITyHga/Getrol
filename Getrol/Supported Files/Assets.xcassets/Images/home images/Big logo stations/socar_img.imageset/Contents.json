@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "socar_img.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
