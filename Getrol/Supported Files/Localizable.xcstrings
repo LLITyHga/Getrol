@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "uk",
   "strings" : {
+    "%@ грн" : {
+
+    },
+    "%@ км" : {
+
+    },
     "common.error.input" : {
 
     },
@@ -61,6 +67,16 @@
     },
     "Hello, world!" : {
 
+    },
+    "home.text.search" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        }
+      }
     },
     "locationPermission.button.next" : {
       "comment" : "Next button title",
@@ -156,6 +172,9 @@
 
     },
     "onboarding.title.text" : {
+
+    },
+    "Search" : {
 
     },
     "view" : {

@@ -10,32 +10,35 @@ import MapKit
 
 struct HomeView: View {
     
-    @State private var isSheetPresented = true
-    @State private var sheetDetent: PresentationDetent = .fraction(0.2)
     @State private var searchText = ""
     @State private var cameraPosition = MapCameraPosition.region(
         MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 50.4501, longitude: 30.5234), // Центр Києва
+            center: CLLocationCoordinate2D(latitude: 50.4501, longitude: 30.5234),
             span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         )
     )
 
     var body: some View {
-        ZStack {
-            Map(position: $cameraPosition) {
-                       // Карта без додаткових маркерів
+           ZStack {
+               Map(position: $cameraPosition) {
+                   // Карта без додаткових маркерів
+               }
+               .mapStyle(.standard())
+               .ignoresSafeArea(edges: .all)
+                   VStack(spacing: 0) {
+                       searchFeld()
+                       RouteButtons()
+                       Spacer()
+                       MenuButtons()
+                       HomeSheet()
+                           .padding(.top, 16)
                    }
-                   .mapStyle(.standard()) // Стандартний стиль карти
-                   .ignoresSafeArea(edges: .all)
-            VStack(spacing: 0) {
-                searchFeld()
-                
-                RouteButtons()
-                Spacer()
-            }
-            .padding(.top, 24)
-        }
-    }
+                   .ignoresSafeArea()
+                   .padding(.top, 24)
+
+                   
+               }
+       }
 }
 
 #Preview {
@@ -45,10 +48,10 @@ struct HomeView: View {
 extension HomeView {
     @ViewBuilder
     func searchFeld () -> some View {
-        TextField("Search", text: $searchText)
+        TextField(LS.Home.search, text: $searchText)
             .padding(.horizontal, 16)
             .frame(height: 56)
-            .background(Color.bg)
+            .background(.bg)
             .cornerRadius(8)
             .padding(.horizontal, 16)
     }
@@ -77,21 +80,54 @@ extension HomeView {
                 .padding(.trailing, 16)
             }
         }
-        .sheet(isPresented: $isSheetPresented) {
-            HomeSheet(currentDetent: $sheetDetent)
-                .presentationDetents([.fraction(0.27), .large], selection: $sheetDetent)
-                .interactiveDismissDisabled(true) // Забороняє закриття свайпом
-                .onChange(of: sheetDetent) { old, newDetent in
-                    if newDetent == .fraction(0.2) {
-                        sheetDetent = .fraction(0.2)
-                    }
-                }
-        }
     }
- //   @ViewBuilder
-     
+    @ViewBuilder
+    func MenuButtons() -> some View {
+        HStack(spacing: 16) {
+            // Перша кнопка
+            Button(action: {
+                // Дія для першої кнопки
+            }) {
+                Image(.menulosedImg)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 42, height: 42)
+            }
+            .padding(.trailing, 24)
+                        
+            // Друга кнопка
+            Button(action: {
+                // Дія для другої кнопки
+            }) {
+                Image(.tupeFuelImg)
+                    .resizable()
+                    .scaledToFit()
+             //       .frame(width: 144, height: 42)
+            }
+                        
+            // Третя кнопка
+            Button(action: {
+                // Дія для третьої кнопки
+            }) {
+                Image(.markImg) // Замініть на потрібну іконку
+                    .resizable()
+                    .scaledToFit()
+                 //   .frame(width: 144, height: 42)
+            }
+                Button(action: {
+                    
+            }) {
+                Image(.settigsImg)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 42, height: 42)
+            }
+        }
+        .padding(.horizontal, 16)
+  //      .padding(.bottom, 16) // Відступ над шітом
+        .background(Color.clear) // Прозорий фон}
+    }
 }
-
 
 
 //    import SwiftUI

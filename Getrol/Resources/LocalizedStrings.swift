@@ -68,4 +68,8 @@ struct LocalizedStrings {
         static let petrolOption = NSLocalizedString("fuelTypeSelection.option.petrol", comment: "Petrol option")
         static let dieselOption = NSLocalizedString("fuelTypeSelection.option.diesel", comment: "Diesel option")
     }
+    
+    struct Home {
+        static let search = NSLocalizedString("home.text.search", comment: "")
+    }
 }
