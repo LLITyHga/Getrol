@@ -39,30 +39,30 @@ class HomeModel: HomeModelProtocol {
     
     func changeSheetState(dragDirection: SheetStateChangeDirection) {
         switch dragDirection {
-         case .up:
-             currentState = (currentState == .minimized) ? .medium : .expanded
-         case .down:
-             currentState = (currentState == .expanded) ? .medium : .minimized
-         }
+        case .up:
+            currentState = (currentState == .minimized) ? .medium : .expanded
+        case .down:
+            currentState = (currentState == .expanded) ? .medium : .minimized
+        }
     }
     
     private(set) var cameraRegion = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 50.4501, longitude: 30.5234),
         span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     )
-
+    
     func updateSearchQuery(_ query: String) {
         print("Search query updated: \(query)")
     }
-
+    
     func performRouteAction() {
         print("Performing route action...")
     }
-
+    
     func performLocationAction() {
         print("Performing location action...")
     }
-
+    
     func handleMenuAction(_ type: MenuButtonType) {
         switch type {
         case .menu1:

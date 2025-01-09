@@ -9,12 +9,13 @@ import MapKit
 import SwiftUI
 
 struct HomeView: View {  //TODO: додати протоколозалежність
+    
     @StateObject  var viewModel: HomeViewModel
-//
-//    init(viewModel: HomeViewModel) {
-//        _viewModel = StateObject(wrappedValue: viewModel)
-//    }
-
+    //
+    //    init(viewModel: HomeViewModel) {
+    //        _viewModel = StateObject(wrappedValue: viewModel)
+    //    }
+    
     var body: some View {
         ZStack {
             Map(position: $viewModel.cameraPosition) {
@@ -22,7 +23,7 @@ struct HomeView: View {  //TODO: додати протоколозалежніс
             }
             .mapStyle(.standard())
             .ignoresSafeArea(edges: .all)
-
+            
             VStack(spacing: 0) {
                 searchField()
                 RouteButtons()
@@ -89,7 +90,7 @@ extension HomeView {
                         .frame(width: 42, height: 42)
                 }
                 .padding(.leading, 16)
-
+                
                 // Кнопка 1
                 Button(action: { viewModel.onMenuAction(.menu1) }) {
                     Image(.tupeFuelImg)
@@ -102,12 +103,12 @@ extension HomeView {
                         .if(!viewModel.isMenuOpen) { view in
                             view
                                 .frame(width: 42)
-                            .offset(x: -50)
+                                .offset(x: -50)
                         }
                         .opacity(viewModel.isMenuOpen ? 1 : 0)
                 }
                 .zIndex(-1)
-
+                
                 // Кнопка 2
                 Button(action: { viewModel.onMenuAction(.menu2) }) {
                     Image(.markImg)
@@ -124,7 +125,7 @@ extension HomeView {
                         .opacity(viewModel.isMenuOpen ? 1 : 0)
                 }
                 .zIndex(-2)
-
+                
                 // Кнопка налаштувань
                 Button(action: { viewModel.onMenuAction(.settings) }) {
                     Image(.settigsImg)
@@ -137,7 +138,7 @@ extension HomeView {
                         .opacity(viewModel.isMenuOpen ? 1 : 0)
                 }
                 .zIndex(-3)
-
+                
                 .if(!viewModel.isMenuOpen) { view in
                     Spacer()
                 }

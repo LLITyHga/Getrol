@@ -23,7 +23,7 @@ protocol HomeViewModelProtocol: ObservableObject {
 }
 
 class HomeViewModel: ObservableObject, HomeViewModelProtocol {
-
+    
     @Published var searchText: String = ""
     @Published var cameraPosition: MapCameraPosition
     @Published var isMenuOpen: Bool = false
@@ -40,7 +40,6 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
         let dragDirection: SheetStateChangeDirection = value.translation.height > 0 ? .down : .up
         model.changeSheetState(dragDirection: dragDirection)
         self.currentState = model.currentState
-        print(" Direction: \(dragDirection)")
     }
     
     func onSearchQueryChanged() {

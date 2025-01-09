@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct HomeSheet: View {
-
+    
     @StateObject  var viewModel: HomeViewModel
-
+    
     let gasStations = [
         GasStation(id: 1, name: "WOG", price: 54.17, distance: 2.5, image: Image(.wogImg)),
         GasStation(id: 2, name: "SOCAR", price: 59.99, distance: 3.2, image: Image(.socarImg)),
@@ -18,11 +18,11 @@ struct HomeSheet: View {
         GasStation(id: 4, name: "Ukrnafta", price: 53.50, distance: 4.0, image: Image(.ukrnaftaImg)),
         GasStation(id: 5, name: "Shell", price: 60.00, distance: 2.1, image: Image(.shellImg)),
     ]
-
+    
     var body: some View {
         VStack(spacing: 0) {
             dragHandle
-
+            
             if viewModel.currentState == .minimized {
                 minimizedView
             } else if viewModel.currentState == .medium {
@@ -37,7 +37,7 @@ struct HomeSheet: View {
         .shadow(radius: 8)
         .animation(.easeInOut, value: viewModel.currentState)
     }
-
+    
     private var dragHandle: some View {
         RoundedRectangle(cornerRadius: 3)
             .fill(.text)
@@ -53,62 +53,62 @@ struct HomeSheet: View {
                     }
             )
     }
-
+    
     private var minimizedView: some View {
         VStack {
             Color.clear.frame(height: 10)
         }
         .padding(.bottom, 10)
     }
-
+    
     private var mediumView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 24) {
                 ForEach(gasStations, id: \.id) { station in
-                
-                        VStack(spacing: 0) {
-                            ZStack(alignment: .topLeading) {
-                                station.image
+                    
+                    VStack(spacing: 0) {
+                        ZStack(alignment: .topLeading) {
+                            station.image
                                 .frame(width: 151, height: 76)
                                 .padding(.top, 14)
-                                
-                                PriceTagView(price: station.price, color: .green)
-                                                            .offset(x: -2, y: 0)
-                                                            .frame(width: 75, height: 24)
-                            }
                             
-                            Text(station.name)
-                                .font(.body)
-                                .foregroundColor(.text)
-                                .padding(.top, 8)
-                            
-                            HStack {
-                                Image(.roadIco)
-                                Text("\(String(format: "%.2f", station.price)) грн")
-                                    .font(.small)
-                                    .foregroundColor(.text)
-                                
-                                Spacer()
-                                
-                                Image(.routeIco)
-                                Text("\(String(format: "%.1f", station.distance)) км")
-                                    .font(.small)
-                                    .foregroundColor(.text)
-                            }
-                            .padding(.top, 4)
+                            PriceTagView(price: station.price, color: .green)
+                                .offset(x: -2, y: 0)
+                                .frame(width: 75, height: 24)
                         }
-                        .frame(width: 151, height: 146)
-                        .background(.bg)
-                        .padding(.top, 50)
-                        .padding(.bottom, 24)
-                   
+                        
+                        Text(station.name)
+                            .font(.body)
+                            .foregroundColor(.text)
+                            .padding(.top, 8)
+                        
+                        HStack {
+                            Image(.roadIco)
+                            Text("\(String(format: "%.2f", station.price)) грн")
+                                .font(.small)
+                                .foregroundColor(.text)
+                            
+                            Spacer()
+                            
+                            Image(.routeIco)
+                            Text("\(String(format: "%.1f", station.distance)) км")
+                                .font(.small)
+                                .foregroundColor(.text)
+                        }
+                        .padding(.top, 4)
+                    }
+                    .frame(width: 151, height: 146)
+                    .background(.bg)
+                    .padding(.top, 50)
+                    .padding(.bottom, 24)
+                    
                 }
             }
             .padding(.leading, 130)
         }
         .background(.bg)
     }
-
+    
     private var expandedView: some View {
         ScrollView {
             VStack(spacing: 16) {
@@ -138,7 +138,7 @@ struct HomeSheet: View {
 struct PriceTagView: View {
     let price: Double
     let color: Color
-
+    
     var body: some View {
         Text(String(format: "%.2f", price))
             .font(.bodyMedum)
