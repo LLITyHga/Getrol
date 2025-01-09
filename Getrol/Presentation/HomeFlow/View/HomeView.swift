@@ -5,55 +5,52 @@
 //  Created by Andrii Pikus on 03.01.2025.
 //
 
-import SwiftUI
 import MapKit
+import SwiftUI
 
-struct HomeView: View {
-    
-    @State private var searchText = ""
-    @State private var cameraPosition = MapCameraPosition.region(
-        MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 50.4501, longitude: 30.5234),
-            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        )
-    )
+struct HomeView: View {  //TODO: додати протоколозалежність
+    @StateObject  var viewModel: HomeViewModel
+//
+//    init(viewModel: HomeViewModel) {
+//        _viewModel = StateObject(wrappedValue: viewModel)
+//    }
 
     var body: some View {
-           ZStack {
-               Map(position: $cameraPosition) {
-                   // Карта без додаткових маркерів
-               }
-               .mapStyle(.standard())
-               .ignoresSafeArea(edges: .all)
-                   VStack(spacing: 0) {
-                       searchFeld()
-                       RouteButtons()
-                       Spacer()
-                       MenuButtons()
-                       HomeSheet()
-                           .padding(.top, 16)
-                   }
-                   .ignoresSafeArea()
-                   .padding(.top, 24)
+        ZStack {
+            Map(position: $viewModel.cameraPosition) {
+                // Карта без додаткових маркерів
+            }
+            .mapStyle(.standard())
+            .ignoresSafeArea(edges: .all)
 
-                   
-               }
-       }
-}
-
-#Preview {
-    HomeView()
+            VStack(spacing: 0) {
+                searchField()
+                RouteButtons()
+                Spacer()
+                MenuButtons()
+                HomeSheet()
+                    .padding(.top, 16)
+            }
+            .ignoresSafeArea()
+            .padding(.top, 24)
+        }
+    }
 }
 
 extension HomeView {
     @ViewBuilder
-    func searchFeld () -> some View {
-        TextField(LS.Home.search, text: $searchText)
-            .padding(.horizontal, 16)
-            .frame(height: 56)
-            .background(.bg)
-            .cornerRadius(8)
-            .padding(.horizontal, 16)
+    func searchField() -> some View {
+        TextField(
+            LS.Home.search, text: $viewModel.searchText,
+            onEditingChanged: { _ in
+                viewModel.onSearchQueryChanged()
+            }
+        )
+        .padding(.horizontal, 16)
+        .frame(height: 56)
+        .background(.bg)
+        .cornerRadius(8)
+        .padding(.horizontal, 16)
     }
     
     @ViewBuilder
@@ -61,19 +58,14 @@ extension HomeView {
         HStack(spacing: 0) {
             Spacer()
             VStack(spacing: 0) {
-                Button(action: {
-                    // do smtng
-                }) {
+                Button(action: viewModel.onRouteAction) {
                     Image(.routeImg)
                         .frame(width: 42, height: 42)
-                    
                 }
                 .padding(.vertical, 16)
                 .padding(.trailing, 16)
                 
-                Button(action: {
-                    // do smtng
-                }) {
+                Button(action: viewModel.onLocationAction) {
                     Image(.locationImg)
                         .frame(width: 42, height: 42)
                 }
@@ -81,86 +73,81 @@ extension HomeView {
             }
         }
     }
+    
     @ViewBuilder
     func MenuButtons() -> some View {
-        HStack(spacing: 16) {
-            // Перша кнопка
-            Button(action: {
-                // Дія для першої кнопки
-            }) {
-                Image(.menulosedImg)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 42, height: 42)
-            }
-            .padding(.trailing, 24)
-                        
-            // Друга кнопка
-            Button(action: {
-                // Дія для другої кнопки
-            }) {
-                Image(.tupeFuelImg)
-                    .resizable()
-                    .scaledToFit()
-             //       .frame(width: 144, height: 42)
-            }
-                        
-            // Третя кнопка
-            Button(action: {
-                // Дія для третьої кнопки
-            }) {
-                Image(.markImg) // Замініть на потрібну іконку
-                    .resizable()
-                    .scaledToFit()
-                 //   .frame(width: 144, height: 42)
-            }
+        ZStack {
+            HStack(spacing: 16) {
                 Button(action: {
-                    
-            }) {
-                Image(.settigsImg)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 42, height: 42)
+                    withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                        viewModel.toggleMenu()
+                    }
+                }) {
+                    Image(viewModel.isMenuOpen ? .meuOpeImg : .menulosedImg)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 42, height: 42)
+                }
+                .padding(.leading, 16)
+
+                // Кнопка 1
+                Button(action: { viewModel.onMenuAction(.menu1) }) {
+                    Image(.tupeFuelImg)
+                        .resizable()
+                        .if(viewModel.isMenuOpen) { view in
+                            view.scaledToFit()
+                                .padding(.leading, 24)
+                        }
+                        .frame(height: 42)
+                        .if(!viewModel.isMenuOpen) { view in
+                            view
+                                .frame(width: 42)
+                            .offset(x: -50)
+                        }
+                        .opacity(viewModel.isMenuOpen ? 1 : 0)
+                }
+                .zIndex(-1)
+
+                // Кнопка 2
+                Button(action: { viewModel.onMenuAction(.menu2) }) {
+                    Image(.markImg)
+                        .resizable()
+                        .if(viewModel.isMenuOpen) { view in
+                            view.scaledToFit()
+                        }
+                        .frame(height: 42)
+                        .if(!viewModel.isMenuOpen) { view in
+                            view
+                                .frame(width: 42)
+                                .offset(x: -115)
+                        }
+                        .opacity(viewModel.isMenuOpen ? 1 : 0)
+                }
+                .zIndex(-2)
+
+                // Кнопка налаштувань
+                Button(action: { viewModel.onMenuAction(.settings) }) {
+                    Image(.settigsImg)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 42, height: 42)
+                        .if(!viewModel.isMenuOpen) { view in
+                            view.offset(x: -200)
+                        }
+                        .opacity(viewModel.isMenuOpen ? 1 : 0)
+                }
+                .zIndex(-3)
+
+                .if(!viewModel.isMenuOpen) { view in
+                    Spacer()
+                }
             }
         }
-        .padding(.horizontal, 16)
-  //      .padding(.bottom, 16) // Відступ над шітом
-        .background(Color.clear) // Прозорий фон}
     }
 }
 
-
-//    import SwiftUI
-//
-//    struct ContentView: View {
-//        @State private var isSheetPresented = true
-//        @State private var sheetDetent: PresentationDetent = .fraction(0.2)
-//        
-//        var body: some View {
-//            Button("Відкрити Sheet") {
-//                isSheetPresented = true
-//            }
-//            .sheet(isPresented: $isSheetPresented) {
-//                SheetView()
-//                    .presentationDetents([.fraction(0.2), .large], selection: $sheetDetent)
-//                    .interactiveDismissDisabled(true) // Забороняє закриття свайпом
-//                    .onChange(of: sheetDetent) { old, newDetent in
-//                        if newDetent == .fraction(0.2) {
-//                            // Повертаємо положення на .fraction(0.2), якщо намагаються свайпнути вниз
-//                            sheetDetent = .fraction(0.2)
-//                        }
-//                    }
-//            }
-//        }
-//    }
-//
-//    struct SheetView: View {
-//        var body: some View {
-//            VStack {
-//                Text("Sheet View")
-//                    .font(.title)
-//                    .padding()
-//                Spacer()
-//            }
-//        }
-//    }
+#Preview {
+    let model = HomeModel()
+    let vm = HomeViewModel(model: model)
+    HomeView(viewModel: vm)
+}
