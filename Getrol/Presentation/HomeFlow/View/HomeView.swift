@@ -28,7 +28,7 @@ struct HomeView: View {  //TODO: додати протоколозалежніс
                 RouteButtons()
                 Spacer()
                 MenuButtons()
-                HomeSheet()
+                HomeSheet(viewModel: viewModel)
                     .padding(.top, 16)
             }
             .ignoresSafeArea()

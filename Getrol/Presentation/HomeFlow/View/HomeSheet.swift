@@ -8,13 +8,8 @@
 import SwiftUI
 
 struct HomeSheet: View {
-    enum SheetState {
-        case minimized
-        case medium
-        case expanded
-    }
 
-    @State private var currentState: SheetState = .medium
+    @StateObject  var viewModel: HomeViewModel
 
     let gasStations = [
         GasStation(id: 1, name: "WOG", price: 54.17, distance: 2.5, image: Image(.wogImg)),
@@ -27,39 +22,12 @@ struct HomeSheet: View {
     var body: some View {
         VStack(spacing: 0) {
             dragHandle
-                .padding(.top, 12)
-                .gesture(
-                    DragGesture()
-                        .onEnded { value in
-                            withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
-                                if value.translation.height > 0 {
-                                    switch currentState {
-                                    case .expanded:
-                                        currentState = .medium
-                                    case .medium:
-                                        currentState = .minimized
-                                    case .minimized:
-                                        break
-                                    }
-                                } else {
-                                    switch currentState {
-                                    case .minimized:
-                                        currentState = .medium
-                                    case .medium:
-                                        currentState = .expanded
-                                    case .expanded:
-                                        break
-                                    }
-                                }
-                            }
-                        }
-                )
 
-            if currentState == .minimized {
+            if viewModel.currentState == .minimized {
                 minimizedView
-            } else if currentState == .medium {
+            } else if viewModel.currentState == .medium {
                 mediumView
-            } else if currentState == .expanded {
+            } else if viewModel.currentState == .expanded {
                 expandedView
             }
         }
@@ -67,13 +35,23 @@ struct HomeSheet: View {
         .background(.bg)
         .cornerRadius(16)
         .shadow(radius: 8)
-        .animation(.easeInOut, value: currentState)
+        .animation(.easeInOut, value: viewModel.currentState)
     }
 
     private var dragHandle: some View {
         RoundedRectangle(cornerRadius: 3)
             .fill(.text)
             .frame(width: 36, height: 5)
+            .contentShape(Rectangle())
+            .padding(.vertical, 12)
+            .gesture(
+                DragGesture()
+                    .onEnded { value in
+                        withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                            viewModel.changePosition(value: value)
+                        }
+                    }
+            )
     }
 
     private var minimizedView: some View {
@@ -181,5 +159,5 @@ struct GasStation {
 }
 
 #Preview {
-    HomeSheet()
+    HomeSheet(viewModel: HomeViewModel(model: HomeModel()))
 }
