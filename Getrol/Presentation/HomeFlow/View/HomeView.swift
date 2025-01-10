@@ -25,12 +25,24 @@ struct HomeView: View {  //TODO: додати протоколозалежніс
             .ignoresSafeArea(edges: .all)
             
             VStack(spacing: 0) {
-                searchField()
-                RouteButtons()
-                Spacer()
-                MenuButtons()
-                HomeSheet(viewModel: viewModel)
-                    .padding(.top, 16)
+                if viewModel.currentState == .expanded {
+                    HomeSheet(viewModel: viewModel)
+                        .padding(.top, 56)
+                        .transition(.move(edge: .bottom))
+                        .animation(.easeInOut, value: viewModel.currentState)
+                } else {
+                    searchField()
+                        .transition(.opacity)
+                    RouteButtons()
+                        .transition(.opacity)
+                    Spacer()
+                    MenuButtons()
+                        .transition(.move(edge: .top))
+                    HomeSheet(viewModel: viewModel)
+                        .padding(.top, 16)
+                        .transition(.move(edge: .top))
+                        .animation(.easeInOut, value: viewModel.currentState)
+                }
             }
             .ignoresSafeArea()
             .padding(.top, 24)

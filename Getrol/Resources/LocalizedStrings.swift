@@ -71,5 +71,7 @@ struct LocalizedStrings {
     
     struct Home {
         static let search = NSLocalizedString("home.text.search", comment: "")
+        static let price = NSLocalizedString("home.text.price", comment: "")
+        static let distance = NSLocalizedString("home.text.distance", comment: "")
     }
 }

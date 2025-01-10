@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "uk",
   "strings" : {
+    "%@" : {
+
+    },
+    "%@ km" : {
+
+    },
     "%@ грн" : {
 
     },
@@ -67,6 +73,26 @@
     },
     "Hello, world!" : {
 
+    },
+    "home.text.distance" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відстань"
+          }
+        }
+      }
+    },
+    "home.text.price" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ціна"
+          }
+        }
+      }
     },
     "home.text.search" : {
       "localizations" : {

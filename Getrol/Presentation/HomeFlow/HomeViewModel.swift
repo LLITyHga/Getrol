@@ -14,6 +14,7 @@ protocol HomeViewModelProtocol: ObservableObject {
     var cameraPosition: MapCameraPosition { get set }
     var isMenuOpen: Bool { get set }
     var currentState: SheetState { get }
+    var selectedFuel: Int { get }
     
     func onSearchQueryChanged()
     func onRouteAction()
@@ -27,7 +28,8 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
     @Published var searchText: String = ""
     @Published var cameraPosition: MapCameraPosition
     @Published var isMenuOpen: Bool = false
-    @Published var currentState: SheetState
+    @Published var currentState: SheetState = .medium
+    @Published var selectedFuel: Int = 0
     private let model: HomeModelProtocol
     
     init(model: HomeModelProtocol) {

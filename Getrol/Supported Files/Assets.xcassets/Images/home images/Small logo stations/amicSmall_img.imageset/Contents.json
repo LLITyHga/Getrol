@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "amicSmall_img.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
