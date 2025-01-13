@@ -1,16 +1,19 @@
 {
   "sourceLanguage" : "uk",
   "strings" : {
+    "" : {
+
+    },
     "%@" : {
 
     },
     "%@ km" : {
 
     },
-    "%@ грн" : {
+    "%@ км" : {
 
     },
-    "%@ км" : {
+    "5 хв." : {
 
     },
     "common.error.input" : {
@@ -73,6 +76,61 @@
     },
     "Hello, world!" : {
 
+    },
+    "home.popup.about_project" : {
+      "comment" : "Текст: Про проект",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Про проєкт"
+          }
+        }
+      }
+    },
+    "home.popup.location" : {
+      "comment" : "Текст: Локація",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Локація"
+          }
+        }
+      }
+    },
+    "home.popup.notifications" : {
+      "comment" : "Текст: Сповіщення",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сповіщення"
+          }
+        }
+      }
+    },
+    "home.popup.privacy_policy" : {
+      "comment" : "Текст: Політика конфіденційності",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Політика конфіденційності"
+          }
+        }
+      }
+    },
+    "home.popup.title" : {
+      "comment" : "Заголовок: Налаштування",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Налаштування"
+          }
+        }
+      }
     },
     "home.text.distance" : {
       "localizations" : {
@@ -246,6 +304,21 @@
           }
         }
       }
+    },
+    "Локація" : {
+
+    },
+    "Налаштування" : {
+
+    },
+    "Політика конфіденційності" : {
+
+    },
+    "Про проект" : {
+
+    },
+    "Сповіщення" : {
+
     }
   },
   "version" : "1.0"

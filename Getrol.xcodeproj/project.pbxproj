@@ -67,6 +67,10 @@
 		F63A39382D1C3F6A0061FDE5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A39372D1C3F6A0061FDE5 /* Data.swift */; };
 		F63A393A2D1C3F8C0061FDE5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A39392D1C3F8C0061FDE5 /* Color.swift */; };
 		F63A393C2D1C3FB20061FDE5 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A393B2D1C3FB20061FDE5 /* UserDefaults.swift */; };
+		F69A7F742D350ACB00338E67 /* SettingsPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69A7F732D350AAF00338E67 /* SettingsPopup.swift */; };
+		F69A7F772D35131100338E67 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69A7F762D35131100338E67 /* PopupModifier.swift */; };
+		F69A7F792D35545200338E67 /* FuelBrandPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69A7F782D35545200338E67 /* FuelBrandPopup.swift */; };
+		F69A7F7B2D3555AC00338E67 /* FuelTypePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69A7F7A2D3555AC00338E67 /* FuelTypePopup.swift */; };
 		F6AA44782D23F66300C1BB42 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */; };
 		F6AA44792D23F66300C1BB42 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */; };
 		F6B046232D280D2B00D010D6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B046222D280D1E00D010D6 /* HomeView.swift */; };
@@ -155,6 +159,10 @@
 		F63A39372D1C3F6A0061FDE5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F63A39392D1C3F8C0061FDE5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F63A393B2D1C3FB20061FDE5 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		F69A7F732D350AAF00338E67 /* SettingsPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopup.swift; sourceTree = "<group>"; };
+		F69A7F762D35131100338E67 /* PopupModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupModifier.swift; sourceTree = "<group>"; };
+		F69A7F782D35545200338E67 /* FuelBrandPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelBrandPopup.swift; sourceTree = "<group>"; };
+		F69A7F7A2D3555AC00338E67 /* FuelTypePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelTypePopup.swift; sourceTree = "<group>"; };
 		F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModel.swift; sourceTree = "<group>"; };
 		F6B046222D280D1E00D010D6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F6E534FF2D2BDB94008D5F23 /* HomeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSheet.swift; sourceTree = "<group>"; };
@@ -406,6 +414,7 @@
 		F63A39362D1C3EB80061FDE5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F69A7F752D3512FC00338E67 /* PopUp */,
 				F63A39342D1C3E9F0061FDE5 /* LocalizedStrings.swift */,
 				F63A393D2D1C3FCD0061FDE5 /* Extensions */,
 			);
@@ -430,6 +439,17 @@
 				F61C065D2D1D5385006D84A2 /* OnboardingGroup */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F69A7F752D3512FC00338E67 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				F69A7F782D35545200338E67 /* FuelBrandPopup.swift */,
+				F69A7F7A2D3555AC00338E67 /* FuelTypePopup.swift */,
+				F69A7F732D350AAF00338E67 /* SettingsPopup.swift */,
+				F69A7F762D35131100338E67 /* PopupModifier.swift */,
+			);
+			path = PopUp;
 			sourceTree = "<group>";
 		};
 		F6AA447A2D23F66900C1BB42 /* Model */ = {
@@ -630,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F63A38ED2D1C2A390061FDE5 /* AppCoordinator.swift in Sources */,
+				F69A7F772D35131100338E67 /* PopupModifier.swift in Sources */,
 				F63A393C2D1C3FB20061FDE5 /* UserDefaults.swift in Sources */,
 				F61C06732D1D5F15006D84A2 /* OnboardingPage.swift in Sources */,
 				F61C06752D1D5F4D006D84A2 /* OnboardingView.swift in Sources */,
@@ -639,6 +660,7 @@
 				F61C06892D1D7CCB006D84A2 /* WelcomeFlowViewModelImpl.swift in Sources */,
 				F61C06742D1D5F30006D84A2 /* OnboardingViewModel.swift in Sources */,
 				F61C067C2D1D6E44006D84A2 /* WelcomeFlowCoordinator.swift in Sources */,
+				F69A7F792D35545200338E67 /* FuelBrandPopup.swift in Sources */,
 				F61C06722D1D5EFE006D84A2 /* OnboardingWelcomeView.swift in Sources */,
 				F63A393A2D1C3F8C0061FDE5 /* Color.swift in Sources */,
 				F61C066E2D1D5E7E006D84A2 /* OnboardingCoordinator.swift in Sources */,
@@ -647,11 +669,13 @@
 				F6AA44782D23F66300C1BB42 /* WelcomeModel.swift in Sources */,
 				F6B046242D280D2B00D010D6 /* HomeView.swift in Sources */,
 				F61C06852D1D7A14006D84A2 /* WelcomeView.swift in Sources */,
+				F69A7F7B2D3555AC00338E67 /* FuelTypePopup.swift in Sources */,
 				F63A39012D1C33340061FDE5 /* Font.swift in Sources */,
 				F6E535012D2BDB98008D5F23 /* HomeSheet.swift in Sources */,
 				F63A38E62D1C281B0061FDE5 /* ContentView.swift in Sources */,
 				F61045202D2EB914008CD83E /* HomeViewModel.swift in Sources */,
 				F61C06702D1D5ED1006D84A2 /* OnboardingFlow.swift in Sources */,
+				F69A7F742D350ACB00338E67 /* SettingsPopup.swift in Sources */,
 				F63A39352D1C3E9F0061FDE5 /* LocalizedStrings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

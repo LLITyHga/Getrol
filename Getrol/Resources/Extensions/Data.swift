@@ -35,4 +35,15 @@ extension View {
             self
         }
     }
+    
+    /// Adds a draggable handle to the view.
+    /// - Parameter onDragEnded: A closure that is called when the drag gesture ends, receiving the drag value.
+    /// - Returns: A view with a draggable handle added.
+    func dragHandle() -> some View {
+            RoundedRectangle(cornerRadius: 3)
+                .fill(.text)
+                .frame(width: 36, height: 5)
+                .contentShape(Rectangle())
+                .padding(.vertical, 12)
+    }
 }

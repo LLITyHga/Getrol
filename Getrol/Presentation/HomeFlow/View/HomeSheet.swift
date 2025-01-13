@@ -29,7 +29,15 @@ struct HomeSheet: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            dragHandle
+            dragHandle()
+                .gesture(
+                    DragGesture()
+                        .onEnded { value in
+                            withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                viewModel.changePosition(value: value)
+                            }
+                        }
+                )
             
             if viewModel.currentState == .minimized {
                 minimizedView
@@ -40,6 +48,7 @@ struct HomeSheet: View {
                 expandedView
             }
         }
+
         .frame(maxWidth: .infinity)
         .background(.bg)
         .cornerRadius(16)
@@ -47,21 +56,6 @@ struct HomeSheet: View {
         .animation(.easeInOut, value: viewModel.currentState)
     }
     
-    private var dragHandle: some View {
-        RoundedRectangle(cornerRadius: 3)
-            .fill(.text)
-            .frame(width: 36, height: 5)
-            .contentShape(Rectangle())
-            .padding(.vertical, 12)
-            .gesture(
-                DragGesture()
-                    .onEnded { value in
-                        withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
-                            viewModel.changePosition(value: value)
-                        }
-                    }
-            )
-    }
     
     private var minimizedView: some View {
         VStack {

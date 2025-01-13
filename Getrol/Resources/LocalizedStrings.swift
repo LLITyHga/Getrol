@@ -73,5 +73,13 @@ struct LocalizedStrings {
         static let search = NSLocalizedString("home.text.search", comment: "")
         static let price = NSLocalizedString("home.text.price", comment: "")
         static let distance = NSLocalizedString("home.text.distance", comment: "")
+        
+        struct Popup {
+            static let title = NSLocalizedString("home.popup.title", comment: "Заголовок: Налаштування")
+            static let notifications = NSLocalizedString("home.popup.notifications", comment: "Текст: Сповіщення")
+            static let location = NSLocalizedString("home.popup.location", comment: "Текст: Локація")
+            static let aboutProject = NSLocalizedString("home.popup.about_project", comment: "Текст: Про проект")
+            static let privacyPolicy = NSLocalizedString("home.popup.privacy_policy", comment: "Текст: Політика конфіденційності")
+        }
     }
 }
