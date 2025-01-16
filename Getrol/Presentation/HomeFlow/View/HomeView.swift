@@ -8,13 +8,9 @@
 import MapKit
 import SwiftUI
 
-struct HomeView: View {  //TODO: додати протоколозалежність
+struct HomeView<ViewModel: HomeViewModelProtocol>: View {
     
     @StateObject  var viewModel: HomeViewModel
-    //
-    //    init(viewModel: HomeViewModel) {
-    //        _viewModel = StateObject(wrappedValue: viewModel)
-    //    }
     
     var body: some View {
         ZStack {
@@ -104,7 +100,7 @@ extension HomeView {
                 .padding(.leading, 16)
                 
                 // Кнопка 1
-                Button(action: { viewModel.onMenuAction(.menu1) }) {
+                Button(action: { viewModel.toFueltypePopup() }) {
                     Image(.tupeFuelImg)
                         .resizable()
                         .if(viewModel.isMenuOpen) { view in
@@ -122,7 +118,7 @@ extension HomeView {
                 .zIndex(-1)
                 
                 // Кнопка 2
-                Button(action: { viewModel.onMenuAction(.menu2) }) {
+                Button(action: { viewModel.toFuelBrandPopup() }) {
                     Image(.markImg)
                         .resizable()
                         .if(viewModel.isMenuOpen) { view in
@@ -139,7 +135,7 @@ extension HomeView {
                 .zIndex(-2)
                 
                 // Кнопка налаштувань
-                Button(action: { viewModel.onMenuAction(.settings) }) {
+                Button(action: { viewModel.toSettingsPopup() }) {
                     Image(.settigsImg)
                         .resizable()
                         .scaledToFit()
@@ -160,7 +156,5 @@ extension HomeView {
 }
 
 #Preview {
-    let model = HomeModel()
-    let vm = HomeViewModel(model: model)
-    HomeView(viewModel: vm)
+    HomeCoordinator(path: .constant(NavigationPath()))
 }

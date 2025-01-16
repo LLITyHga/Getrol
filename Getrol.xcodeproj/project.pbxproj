@@ -71,6 +71,10 @@
 		F69A7F772D35131100338E67 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69A7F762D35131100338E67 /* PopupModifier.swift */; };
 		F69A7F792D35545200338E67 /* FuelBrandPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69A7F782D35545200338E67 /* FuelBrandPopup.swift */; };
 		F69A7F7B2D3555AC00338E67 /* FuelTypePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69A7F7A2D3555AC00338E67 /* FuelTypePopup.swift */; };
+		F6A6FC192D37F15F00E50D6E /* HomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A6FC182D37F15F00E50D6E /* HomeFlow.swift */; };
+		F6A6FC1A2D37F15F00E50D6E /* HomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A6FC182D37F15F00E50D6E /* HomeFlow.swift */; };
+		F6A6FC1C2D37F2AC00E50D6E /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A6FC1B2D37F2AC00E50D6E /* HomeCoordinator.swift */; };
+		F6A6FC1D2D37F2AC00E50D6E /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A6FC1B2D37F2AC00E50D6E /* HomeCoordinator.swift */; };
 		F6AA44782D23F66300C1BB42 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */; };
 		F6AA44792D23F66300C1BB42 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */; };
 		F6B046232D280D2B00D010D6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B046222D280D1E00D010D6 /* HomeView.swift */; };
@@ -163,6 +167,8 @@
 		F69A7F762D35131100338E67 /* PopupModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupModifier.swift; sourceTree = "<group>"; };
 		F69A7F782D35545200338E67 /* FuelBrandPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelBrandPopup.swift; sourceTree = "<group>"; };
 		F69A7F7A2D3555AC00338E67 /* FuelTypePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelTypePopup.swift; sourceTree = "<group>"; };
+		F6A6FC182D37F15F00E50D6E /* HomeFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlow.swift; sourceTree = "<group>"; };
+		F6A6FC1B2D37F2AC00E50D6E /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		F6AA44772D23F66300C1BB42 /* WelcomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModel.swift; sourceTree = "<group>"; };
 		F6B046222D280D1E00D010D6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F6E534FF2D2BDB94008D5F23 /* HomeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSheet.swift; sourceTree = "<group>"; };
@@ -452,6 +458,22 @@
 			path = PopUp;
 			sourceTree = "<group>";
 		};
+		F6A6FC162D37EFB100E50D6E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F610451F2D2EB914008CD83E /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F6A6FC172D37EFC100E50D6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F610451C2D2EB8E6008CD83E /* HomeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F6AA447A2D23F66900C1BB42 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,8 +494,10 @@
 		F6B046262D280D6E00D010D6 /* HomeFlow */ = {
 			isa = PBXGroup;
 			children = (
-				F610451C2D2EB8E6008CD83E /* HomeModel.swift */,
-				F610451F2D2EB914008CD83E /* HomeViewModel.swift */,
+				F6A6FC182D37F15F00E50D6E /* HomeFlow.swift */,
+				F6A6FC1B2D37F2AC00E50D6E /* HomeCoordinator.swift */,
+				F6A6FC172D37EFC100E50D6E /* Model */,
+				F6A6FC162D37EFB100E50D6E /* ViewModel */,
 				F6B046252D280D5600D010D6 /* View */,
 			);
 			path = HomeFlow;
@@ -659,6 +683,7 @@
 				F610451E2D2EB8E6008CD83E /* HomeModel.swift in Sources */,
 				F61C06892D1D7CCB006D84A2 /* WelcomeFlowViewModelImpl.swift in Sources */,
 				F61C06742D1D5F30006D84A2 /* OnboardingViewModel.swift in Sources */,
+				F6A6FC1A2D37F15F00E50D6E /* HomeFlow.swift in Sources */,
 				F61C067C2D1D6E44006D84A2 /* WelcomeFlowCoordinator.swift in Sources */,
 				F69A7F792D35545200338E67 /* FuelBrandPopup.swift in Sources */,
 				F61C06722D1D5EFE006D84A2 /* OnboardingWelcomeView.swift in Sources */,
@@ -676,6 +701,7 @@
 				F61045202D2EB914008CD83E /* HomeViewModel.swift in Sources */,
 				F61C06702D1D5ED1006D84A2 /* OnboardingFlow.swift in Sources */,
 				F69A7F742D350ACB00338E67 /* SettingsPopup.swift in Sources */,
+				F6A6FC1D2D37F2AC00E50D6E /* HomeCoordinator.swift in Sources */,
 				F63A39352D1C3E9F0061FDE5 /* LocalizedStrings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -688,6 +714,7 @@
 				F61C06652D1D5B1D006D84A2 /* OnboardingViewModel.swift in Sources */,
 				F6E535002D2BDB98008D5F23 /* HomeSheet.swift in Sources */,
 				F61C066D2D1D5BD9006D84A2 /* OnboardingPage.swift in Sources */,
+				F6A6FC192D37F15F00E50D6E /* HomeFlow.swift in Sources */,
 				F6B046232D280D2B00D010D6 /* HomeView.swift in Sources */,
 				F61C065C2D1D536F006D84A2 /* OnboardingFlow.swift in Sources */,
 				F6AA44792D23F66300C1BB42 /* WelcomeModel.swift in Sources */,
@@ -700,6 +727,7 @@
 				F63A38F82D1C2BE20061FDE5 /* Injection.swift in Sources */,
 				F61C06692D1D5B67006D84A2 /* OnboardingView.swift in Sources */,
 				F61C067D2D1D6E44006D84A2 /* WelcomeFlowCoordinator.swift in Sources */,
+				F6A6FC1C2D37F2AC00E50D6E /* HomeCoordinator.swift in Sources */,
 				F61C06882D1D7CCB006D84A2 /* WelcomeFlowViewModelImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

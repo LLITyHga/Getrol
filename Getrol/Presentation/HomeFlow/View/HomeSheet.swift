@@ -215,7 +215,3 @@ struct GasStation {
     let smallImage: Image
     let address: String
 }
-
-#Preview {
-    HomeSheet(viewModel: HomeViewModel(model: HomeModel()))
-}

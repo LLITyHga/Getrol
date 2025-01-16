@@ -20,7 +20,6 @@ protocol HomeViewModelProtocol: ObservableObject {
     func onRouteAction()
     func onLocationAction()
     func toggleMenu()
-    func onMenuAction(_ type: MenuButtonType)
 }
 
 class HomeViewModel: ObservableObject, HomeViewModelProtocol {
@@ -31,9 +30,11 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
     @Published var currentState: SheetState = .medium
     @Published var selectedFuel: Int = 0
     private let model: HomeModelProtocol
+    private let navigation: HomeNavigation
     
-    init(model: HomeModelProtocol) {
+    init(model: HomeModelProtocol, navigation: HomeNavigation) {
         self.model = model
+        self.navigation = navigation
         self.cameraPosition = .region(model.cameraRegion)
         self.currentState = model.currentState
     }
@@ -60,8 +61,19 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
         isMenuOpen.toggle()
     }
     
-    func onMenuAction(_ type: MenuButtonType) {
-        model.handleMenuAction(type)
-        //    toggleMenu() // Закриваємо меню після вибору дії
+    func toFueltypePopup() {
+        navigation.presentPopUp(.fuelType)
+        toggleMenu()
     }
+    
+    func toFuelBrandPopup() {
+        navigation.presentPopUp(.fuelBrand)
+        toggleMenu()
+    }
+    
+    func toSettingsPopup() {
+        navigation.presentPopUp(.settings)
+        toggleMenu()
+    }
+    
 }

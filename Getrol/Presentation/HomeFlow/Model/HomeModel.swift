@@ -14,12 +14,7 @@ protocol HomeModelProtocol {
     func updateSearchQuery(_ query: String)
     func performRouteAction()
     func performLocationAction()
-    func handleMenuAction(_ type: MenuButtonType)
     func changeSheetState(dragDirection: SheetStateChangeDirection)
-}
-
-enum MenuButtonType {
-    case menu1, menu2, menu3, settings
 }
 
 enum SheetStateChangeDirection {
@@ -62,17 +57,5 @@ class HomeModel: HomeModelProtocol {
     func performLocationAction() {
         print("Performing location action...")
     }
-    
-    func handleMenuAction(_ type: MenuButtonType) {
-        switch type {
-        case .menu1:
-            print("Menu 1 action triggered")
-        case .menu2:
-            print("Menu 2 action triggered")
-        case .menu3:
-            print("Menu 3 action triggered")
-        case .settings:
-            print("Settings action triggered")
-        }
-    }
+
 }

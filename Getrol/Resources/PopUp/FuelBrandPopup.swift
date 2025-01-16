@@ -23,57 +23,59 @@ struct FuelBrandPopup: View {
     ]
 
     var body: some View {
-        VStack(spacing: 0) {
-            dragHandle()
-                .gesture(
-                    DragGesture()
-                        .onEnded { value in
-                            withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
-                                if value.translation.height > 0 {
-                                    dismissModal()
+        GeometryReader { geometry in
+            VStack(spacing: 0) {
+                dragHandle()
+                    .gesture(
+                        DragGesture()
+                            .onEnded { value in
+                                withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                    if value.translation.height > 0 {
+                                        dismissModal()
+                                    }
                                 }
                             }
-                        }
-                )
-
-            // Заголовок
-            Text("Марка пального")
-                .font(.h2)
-                .foregroundColor(.text)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.top, 20)
-                .padding(.bottom, 8)
-
-            Text("Активуйте марки пального, якими користуєтесь.")
-                .font(.small)
-                .foregroundColor(.text)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 16)
-                .padding(.bottom, 27)
-
-            Divider()
-                .frame(height: 1)
-                .background(Color.gray.opacity(0.3))
-                .padding(.horizontal, 8)
-            
-            ScrollView {
-                VStack(spacing: 0) {
-                    ForEach(Array(selectedBrands.keys), id: \.self) { brand in
-                        if let isActive = selectedBrands[brand] {
-                            FuelBrandRow(brandName: brand, isActive: Binding(
-                                get: { isActive },
-                                set: { selectedBrands[brand] = $0 }
-                            ))
+                    )
+                
+                // Заголовок
+                Text("Марка пального")
+                    .font(.h2)
+                    .foregroundColor(.text)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.top, 20)
+                    .padding(.bottom, 8)
+                
+                Text("Активуйте марки пального, якими користуєтесь.")
+                    .font(.small)
+                    .foregroundColor(.text)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 27)
+                
+                Divider()
+                    .frame(height: 1)
+                    .background(Color.gray.opacity(0.3))
+                    .padding(.horizontal, 8)
+                
+                ScrollView {
+                    VStack(spacing: 0) {
+                        ForEach(Array(selectedBrands.keys), id: \.self) { brand in
+                            if let isActive = selectedBrands[brand] {
+                                FuelBrandRow(brandName: brand, isActive: Binding(
+                                    get: { isActive },
+                                    set: { selectedBrands[brand] = $0 }
+                                ))
+                            }
                         }
                     }
+                    .padding(.vertical, 16)
                 }
-                .padding(.vertical, 16)
             }
+            .background(.bg)
+            .cornerRadius(16)
+            .shadow(color: Color.black.opacity(0.2), radius: 7, x: 0, y: 7)
         }
-        .frame(width: 342, height: 638, alignment: .center)
-        .background(.bg)
-        .cornerRadius(16)
-        .shadow(color: Color.black.opacity(0.2), radius: 7, x: 0, y: 7)
+        .frame(width: 342, height: 538, alignment: .center)
     }
 }
 

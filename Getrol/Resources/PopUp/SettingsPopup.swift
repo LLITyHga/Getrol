@@ -18,10 +18,8 @@ struct SettingsPopup: View {
                 .gesture(
                     DragGesture()
                         .onEnded { value in
-                            withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
-                                if value.translation.height > 0 {
+                            if value.translation.height > 0 {
                                     dismissModal()
-                                }
                             }
                         }
                 )
