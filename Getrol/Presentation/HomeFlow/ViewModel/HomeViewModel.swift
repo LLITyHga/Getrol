@@ -13,6 +13,7 @@ protocol HomeViewModelProtocol: ObservableObject {
     var searchText: String { get set }
     var cameraPosition: MapCameraPosition { get set }
     var isMenuOpen: Bool { get set }
+    var isPopupOpen: Bool { get }
     var currentState: SheetState { get }
     var selectedFuel: Int { get }
     
@@ -27,6 +28,7 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
     @Published var searchText: String = ""
     @Published var cameraPosition: MapCameraPosition
     @Published var isMenuOpen: Bool = false
+    @Published var isPopupOpen: Bool = false
     @Published var currentState: SheetState = .medium
     @Published var selectedFuel: Int = 0
     private let model: HomeModelProtocol
@@ -61,18 +63,27 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
         isMenuOpen.toggle()
     }
     
-    func toFueltypePopup() {
-        navigation.presentPopUp(.fuelType)
+    func toFuelTypePopup() {
+        isPopupOpen = true
+        navigation.presentPopUp(.fuelType(onDismiss: {
+            self.isPopupOpen = false
+        }))
         toggleMenu()
     }
-    
+
     func toFuelBrandPopup() {
-        navigation.presentPopUp(.fuelBrand)
+        isPopupOpen = true
+        navigation.presentPopUp(.fuelBrand(onDismiss: {
+            self.isPopupOpen = false
+        }))
         toggleMenu()
     }
-    
+
     func toSettingsPopup() {
-        navigation.presentPopUp(.settings)
+        isPopupOpen = true
+        navigation.presentPopUp(.settings(onDismiss: {
+            self.isPopupOpen = false
+        }))
         toggleMenu()
     }
     

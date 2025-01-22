@@ -21,7 +21,8 @@ struct FuelBrandPopup: View {
         "UPG": true,
         "VST": true
     ]
-
+    var onDismis: () -> Void
+    
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
@@ -32,20 +33,21 @@ struct FuelBrandPopup: View {
                                 withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
                                     if value.translation.height > 0 {
                                         dismissModal()
+                                        onDismis()
                                     }
                                 }
                             }
                     )
                 
                 // Заголовок
-                Text("Марка пального")
+                Text(LS.Home.Popup.fuelBrandTitle)
                     .font(.h2)
                     .foregroundColor(.text)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.top, 20)
                     .padding(.bottom, 8)
                 
-                Text("Активуйте марки пального, якими користуєтесь.")
+                Text(LS.Home.Popup.fuelBrandDescription)
                     .font(.small)
                     .foregroundColor(.text)
                     .multilineTextAlignment(.center)
@@ -102,5 +104,5 @@ struct FuelBrandRow: View {
 }
 
 #Preview {
-    FuelBrandPopup()
+    //   FuelBrandPopup()
 }

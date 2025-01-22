@@ -10,14 +10,31 @@ import Foundation
 
 enum HomeFlow: Hashable{
     
-    enum PopUp: Identifiable {
-        
-        case fuelBrand
-        case fuelType
-        case settings
-        
+    enum PopUp: Identifiable, Equatable {
+        case fuelBrand(onDismiss: () -> Void)
+        case fuelType(onDismiss: () -> Void)
+        case settings(onDismiss: () -> Void)
+
         var id: String {
-            String(describing: self)
+            switch self {
+            case .fuelBrand:
+                return "fuelBrand"
+            case .fuelType:
+                return "fuelType"
+            case .settings:
+                return "settings"
+            }
+        }
+
+        static func == (lhs: PopUp, rhs: PopUp) -> Bool {
+            switch (lhs, rhs) {
+            case (.fuelBrand, .fuelBrand),
+                 (.fuelType, .fuelType),
+                 (.settings, .settings):
+                return true
+            default:
+                return false
+            }
         }
     }
     

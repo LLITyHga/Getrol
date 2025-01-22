@@ -34,9 +34,14 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
                     Spacer()
                     MenuButtons()
                         .transition(.move(edge: .top))
+                        .offset(x: viewModel.isPopupOpen ? -UIScreen.main.bounds.height : 0)
+                        .animation(.easeInOut, value: viewModel.isPopupOpen)
+
                     HomeSheet(viewModel: viewModel)
                         .padding(.top, 16)
                         .transition(.move(edge: .top))
+                        .offset(y: viewModel.isPopupOpen ? UIScreen.main.bounds.height : 0)
+                        .animation(.easeInOut, value: viewModel.isPopupOpen)
                         .animation(.easeInOut, value: viewModel.currentState)
                 }
             }
@@ -100,7 +105,7 @@ extension HomeView {
                 .padding(.leading, 16)
                 
                 // Кнопка 1
-                Button(action: { viewModel.toFueltypePopup() }) {
+                Button(action: { viewModel.toFuelTypePopup() }) {
                     Image(.tupeFuelImg)
                         .resizable()
                         .if(viewModel.isMenuOpen) { view in

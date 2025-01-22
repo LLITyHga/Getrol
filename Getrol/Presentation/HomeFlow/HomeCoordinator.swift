@@ -53,12 +53,12 @@ private extension HomeCoordinator {
     @ViewBuilder
     func popUpContent(for flow: HomeFlow.PopUp) -> some View {
         switch flow {
-        case .fuelBrand:
-            FuelBrandPopup()
-        case .fuelType:
-            FuelTypePopup()
-        case .settings:
-            SettingsPopup()
+        case .fuelBrand(let onDismiss):
+            FuelBrandPopup(onDismis: onDismiss)
+        case .fuelType(let onDismiss):
+            FuelTypePopup(onDismis: onDismiss)
+        case .settings(let onDismiss):
+            SettingsPopup(onDismis: onDismiss)
         }
     }
 }

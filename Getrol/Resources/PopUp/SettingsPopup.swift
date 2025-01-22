@@ -11,7 +11,8 @@ struct SettingsPopup: View {
 
     @Environment(\.dismissModal) private var dismissModal
     @State private var notificationsEnabled = true
-
+    var onDismis: () -> Void
+    
     var body: some View {
         VStack(spacing: 0) {
             dragHandle()
@@ -20,6 +21,7 @@ struct SettingsPopup: View {
                         .onEnded { value in
                             if value.translation.height > 0 {
                                     dismissModal()
+                                onDismis()
                             }
                         }
                 )
@@ -112,5 +114,5 @@ struct SettingsPopup: View {
 }
 
 #Preview {
-    SettingsPopup()
+  //  SettingsPopup()
 }

@@ -80,6 +80,14 @@ struct LocalizedStrings {
             static let location = NSLocalizedString("home.popup.location", comment: "Текст: Локація")
             static let aboutProject = NSLocalizedString("home.popup.about_project", comment: "Текст: Про проект")
             static let privacyPolicy = NSLocalizedString("home.popup.privacy_policy", comment: "Текст: Політика конфіденційності")
+            
+            // FuelType
+            static let fuelTypeTitle = NSLocalizedString("home.popup.fueltype.title", comment: "Заголовок: Тип палива")
+            static let fuelTypeDescription = NSLocalizedString("home.popup.fueltype.description", comment: "Опис: Оберіть тип палива")
+            
+            // FuelBrand
+            static let fuelBrandTitle = NSLocalizedString("home.popup.fuelbrand.title", comment: "Заголовок: Марка палива")
+            static let fuelBrandDescription = NSLocalizedString("home.popup.fuelbrand.description", comment: "Опис: Оберіть марку палива")
         }
     }
 }

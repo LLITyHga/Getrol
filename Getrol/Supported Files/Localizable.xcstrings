@@ -88,6 +88,50 @@
         }
       }
     },
+    "home.popup.fuelbrand.description" : {
+      "comment" : "Опис: Оберіть марку палива",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Активуйте марки пального, якими користуєтесь."
+          }
+        }
+      }
+    },
+    "home.popup.fuelbrand.title" : {
+      "comment" : "Заголовок: Марка палива",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Марка пального"
+          }
+        }
+      }
+    },
+    "home.popup.fueltype.description" : {
+      "comment" : "Опис: Оберіть тип палива",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оберіть всі типи палива. Змініть у будь-який момент."
+          }
+        }
+      }
+    },
+    "home.popup.fueltype.title" : {
+      "comment" : "Заголовок: Тип палива",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тип палива"
+          }
+        }
+      }
+    },
     "home.popup.location" : {
       "comment" : "Текст: Локація",
       "localizations" : {
@@ -304,21 +348,6 @@
           }
         }
       }
-    },
-    "Локація" : {
-
-    },
-    "Налаштування" : {
-
-    },
-    "Політика конфіденційності" : {
-
-    },
-    "Про проект" : {
-
-    },
-    "Сповіщення" : {
-
     }
   },
   "version" : "1.0"

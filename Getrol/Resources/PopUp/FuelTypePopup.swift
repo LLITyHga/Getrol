@@ -11,6 +11,7 @@ struct FuelTypePopup: View {
     @Environment(\.dismissModal) private var dismissModal
     @State private var selectedFuel: String = "Бензин А-95"
     let fuelOptions = ["Бензин А-92", "Бензин А-95", "Бензин А-98", "Дизель", "Газ"]
+    var onDismis: () -> Void
 
     var body: some View {
         VStack(spacing: 0) {
@@ -21,27 +22,26 @@ struct FuelTypePopup: View {
                             withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
                                 if value.translation.height > 0 {
                                     dismissModal()
+                                    onDismis()
                                 }
                             }
                         }
                 )
 
-            // Заголовок
-            Text("Тип палива")
+            Text(LS.Home.Popup.fuelTypeTitle)
                 .font(.h2)
                 .foregroundColor(.text)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.top, 20)
                 .padding(.bottom, 8)
 
-            Text("Оберіть всі типи палива. Змініть у будь-який момент.")
+            Text(LS.Home.Popup.fuelTypeDescription)
                 .font(.small)
                 .foregroundColor(.text)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 16)
 
-            // Пікер
-            Picker("Тип палива", selection: $selectedFuel) {
+            Picker(LS.Home.Popup.fuelTypeTitle, selection: $selectedFuel) {
                 ForEach(fuelOptions, id: \.self) { fuel in
                     Text(fuel)
                         .font(.body)
@@ -63,5 +63,5 @@ struct FuelTypePopup: View {
 }
 
 #Preview {
-    FuelTypePopup()
+    FuelTypePopup(onDismis: {print("Dismissed")})
 }
