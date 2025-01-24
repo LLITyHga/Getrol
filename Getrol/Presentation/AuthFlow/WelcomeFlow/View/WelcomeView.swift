@@ -22,12 +22,12 @@ struct WelcomeView: View {
                     .padding(.bottom, 56)
                 
                 Text(LS.Welcome.greeting)
-                    .font(.body)
+                    .font(._body)
                     .foregroundStyle(.black)
                     .padding(.bottom, 8)
                 
                 Text(LS.Welcome.description)
-                    .font(.body)
+                    .font(._body)
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.black)
             }
@@ -73,7 +73,7 @@ struct LocationPermissionView: View {
                     .padding(.bottom, 8)
                 
                 Text(LS.LocationPermission.description)
-                    .font(.body)
+                    .font(._body)
                     .padding(.horizontal, 16)
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.black)
@@ -146,7 +146,7 @@ struct FuelSwitcherView: View {
         HStack(spacing: 0) {
             ForEach(0..<options.count, id: \.self) { index in
                 Text(options[index])
-                    .font(.body)
+                    .font(._body)
                     .foregroundColor(selectedFuel == index ? .bg : .text)
                     .frame(maxWidth: .infinity)
                     .padding()

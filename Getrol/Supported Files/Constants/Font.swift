@@ -20,7 +20,7 @@ extension Font {
     static var h2: Font = .custom("Gilroy-Regular", size: 18)
         .weight(.regular)
     
-    static var body: Font = .custom("Gilroy-Regular", size: 16)
+    static var _body: Font = .custom("Gilroy-Regular", size: 16)
         .weight(.regular)
     
     static var bodyMedum: Font = .custom("Gilroy-Medum", size: 16)

@@ -15,10 +15,17 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
     var body: some View {
         ZStack {
             Map(position: $viewModel.cameraPosition) {
-                // Карта без додаткових маркерів
-            }
-            .mapStyle(.standard())
-            .ignoresSafeArea(edges: .all)
+                    ForEach(viewModel.gasStations2, id: \.address) { station in
+                        Annotation("", coordinate: station.coordinates) {
+                                   VStack {
+                                       Image(.olasSmallImg)
+                                       Text(station.name)
+                                           .font(.caption)
+                                           .foregroundColor(.black)
+                                   }
+                               }
+                    }
+                }
             
             VStack(spacing: 0) {
                 if viewModel.currentState == .expanded {

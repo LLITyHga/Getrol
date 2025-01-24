@@ -44,7 +44,7 @@ struct FuelTypePopup: View {
             Picker(LS.Home.Popup.fuelTypeTitle, selection: $selectedFuel) {
                 ForEach(fuelOptions, id: \.self) { fuel in
                     Text(fuel)
-                        .font(.body)
+                        .font(._body)
                         .foregroundColor(.text)
                 }
             }

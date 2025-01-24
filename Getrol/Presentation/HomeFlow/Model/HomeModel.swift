@@ -42,7 +42,7 @@ class HomeModel: HomeModelProtocol {
     }
     
     private(set) var cameraRegion = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 50.4501, longitude: 30.5234),
+        center: CLLocationCoordinate2D(latitude: 51.3340391, longitude: 25.8515579),
         span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     )
     

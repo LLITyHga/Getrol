@@ -81,7 +81,7 @@ struct HomeSheet: View {
                         }
                         
                         Text(station.name)
-                            .font(.body)
+                            .font(._body)
                             .foregroundColor(.text)
                             .padding(.top, 8)
                         

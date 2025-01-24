@@ -88,7 +88,7 @@ struct FuelBrandRow: View {
     var body: some View {
         HStack {
             Text(brandName)
-                .font(.body)
+                .font(._body)
                 .foregroundColor(.text)
             Spacer()
             Toggle("", isOn: $isActive)
