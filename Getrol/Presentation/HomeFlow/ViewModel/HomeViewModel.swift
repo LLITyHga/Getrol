@@ -107,10 +107,34 @@ class HomeViewModel: ObservableObject, HomeViewModelProtocol {
 
     func toSettingsPopup() {
         isPopupOpen = true
-        navigation.presentPopUp(.settings(onDismiss: {
-            self.isPopupOpen = false
-        }))
+        navigation.presentPopUp(
+            .settings(
+                onDismiss: {
+                    self.isPopupOpen = false
+                },
+                onLocation: {
+                    self.toLocationAlert()
+                }
+            )
+        )
         toggleMenu()
+    }
+    
+    func toLocationAlert() {
+        navigation.showAlert(config: AlertConfig(
+            title: "Налаштування локації можуть бути змінені лише в налаштуваннях телефону.",
+            message: "Ви зараз будете перенаправленні в налаштування телефону.",
+            okButtonTitle: "ОК",
+            cancelButtonTitle: "Відмінити",
+            onOk: {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url)
+                }
+            },
+            onCancel: {
+                print("Користувач натиснув 'Скасувати'")
+            }
+        ))
     }
     
 }
@@ -120,3 +144,4 @@ struct GasStation2 {
     let address: String
     let coordinates: CLLocationCoordinate2D
 }
+

@@ -43,7 +43,7 @@ struct WelcomeFlowCoordinator: View, WelcomeFlowNavigation {
         case .fuelTypeSelection:
             FuelTypeSelectionView(viewModel: makeViewModel())
         case .main:
-            Text("Main Screen")
+            HomeCoordinator(path: .constant(NavigationPath()))
         }
     }
     

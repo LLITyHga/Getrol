@@ -13,6 +13,7 @@ struct SettingsPopup: View {
     @State private var notificationsEnabled = true
     @State private var currentView: PopupViewState = .settings
     var onDismis: () -> Void
+    var onLocaton: () -> Void
 
     
     var body: some View {
@@ -74,7 +75,7 @@ extension SettingsPopup {
                 .padding(.horizontal, 16)
             // Кнопка "Локація"
             Button(action: {
-                print("Локація натиснута")
+                onLocaton()
             }) {
                 HStack {
                     Text(LS.Home.Popup.location)
@@ -136,10 +137,14 @@ extension SettingsPopup {
     func About() -> some View {
         ScrollView {
             VStack(spacing: 0) {
-                Text("Про нас")
-                    .font(.h2)
-                    .foregroundStyle(.text)
-                    .padding(.vertical, 40)
+                HStack {
+                    Spacer()
+                    Text("Про нас")
+                        .font(.h2)
+                        .foregroundStyle(.text)
+                        .padding(.vertical, 40)
+                    Spacer()
+                }
                 
                 Text("Чи знали ви, що різниця в ціні на пальне між найдешевшою та найдорожчою заправкою може становити до 8 гривень за літр?")
                     .font(.bodyMedum)
@@ -162,21 +167,28 @@ extension SettingsPopup {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     // Заголовок
-                    Text("Політика конфіденційності")
-                        .font(.h2)
-                        .foregroundStyle(.text)
-                        .padding(.bottom, 8)
+                    HStack(alignment: .center, spacing: 0) {
+                        Spacer()
+                        Text("Політика конфіденційності")
+                            .font(.h2)
+                            .foregroundStyle(.text)
+                            .padding(.bottom, 8)
+                        Spacer()
+                    }
                     
                     // Вступ
                     Text("Вступ")
                         .font(.bodyMedum)
-                        .fontWeight(.semibold)
+                        .foregroundStyle(.text)
                     Text("Ця політика конфіденційності пояснює, як Getrol (далі - \"Додаток\") збирає, використовує та захищає ваші дані.")
                         .font(._body)
-                    
+                        .foregroundStyle(.text)
+
                     // Які дані ми збираємо
                     Text("Які дані ми збираємо")
                         .font(.bodyMedum)
+                        .foregroundStyle(.text)
+
                     
                     VStack(alignment: .leading, spacing: 8) {
                         bulletPoint(text: "Дані про місцезнаходження (за вашою згодою)")
@@ -189,6 +201,8 @@ extension SettingsPopup {
                     // Як ми використовуємо ваші дані
                     Text("Як ми використовуємо ваші дані")
                         .font(.bodyMedum)
+                        .foregroundStyle(.text)
+
                     
                     VStack(alignment: .leading, spacing: 8) {
                         bulletPoint(text: "Для пошуку найближчих АЗС та найвигідніших цін")
@@ -199,8 +213,9 @@ extension SettingsPopup {
                     
                     // Дані про місцезнаходження
                     Text("Дані про місцезнаходження")
-                        .font(.headline)
-                        .fontWeight(.semibold)
+                        .font(.bodyMedum)
+                        .foregroundStyle(.text)
+
                     Text("""
             Додаток використовує дані про місцезнаходження для:
             - Пошуку найближчих АЗС
@@ -208,24 +223,29 @@ extension SettingsPopup {
             - Надання персоналізованих рекомендацій
             """)
                     .font(._body)
+                    .foregroundStyle(.text)
+
                     Text("Ви можете будь-коли вимкнути доступ до геолокації в налаштуваннях пристрою.")
                         .font(._body)
+                        .foregroundStyle(.text)
                     
                     // Зберігання та захист даних
                     Text("Зберігання та захист даних")
-                        .font(.headline)
-                        .fontWeight(.semibold)
+                        .font(.bodyMedum)
+                        .foregroundStyle(.text)
+
                     Text("""
             - Всі дані зберігаються на захищених серверах
             - Ми не продаємо ваші персональні дані третім особам
             - Історія пошуків зберігається лише на вашому пристрої
             """)
                     .font(._body)
+                    .foregroundStyle(.text)
                     
                     // Ваші права
                     Text("Ваші права")
-                        .font(.headline)
-                        .fontWeight(.semibold)
+                        .font(.bodyMedum)
+                        .foregroundStyle(.text)
                     
                     VStack(alignment: .leading, spacing: 8) {
                         bulletPoint(text: "Видалити свій обліковий запис")
@@ -236,10 +256,13 @@ extension SettingsPopup {
                     
                     // Зміни до політики
                     Text("Зміни до політики")
-                        .font(.headline)
-                        .fontWeight(.semibold)
+                        .font(.bodyMedum)
+                        .foregroundStyle(.text)
+
                     Text("Ми можемо оновлювати цю політику конфіденційності. Про суттєві зміни ви отримаєте повідомлення через Додаток.")
                         .font(._body)
+                        .foregroundStyle(.text)
+
                 }
                 .padding()
             }
@@ -254,6 +277,8 @@ extension SettingsPopup {
                 .padding(.top, 4)
             Text(text)
                 .font(._body)
+                .foregroundStyle(.text)
+
         }
     }
 }

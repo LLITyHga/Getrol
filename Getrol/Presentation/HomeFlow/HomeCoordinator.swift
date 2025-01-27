@@ -10,6 +10,7 @@ import SwiftUI
 import Swinject
 
 protocol HomeNavigation {
+    func showAlert(config: AlertConfig)
     func presentPopUp(_ content: HomeFlow.PopUp)
     func pop()
 }
@@ -17,7 +18,8 @@ protocol HomeNavigation {
 struct HomeCoordinator: View, HomeNavigation {
     @Binding private var path: NavigationPath
     @State private var popUpItem: HomeFlow.PopUp?
-    
+    @State private var alertConfig: AlertConfig?
+
     init(path: Binding<NavigationPath>) {
         self._path = path
     }
@@ -27,7 +29,31 @@ struct HomeCoordinator: View, HomeNavigation {
             .popup(item: $popUpItem) { popUp in
                 popUpContent(for: popUp)
             }
+            .alert(item: $alertConfig) { config in
+                Alert(
+                    title: Text(config.title)
+                        .font(.systemBold)
+                        .foregroundStyle(.primary),
+                    message: Text(config.message)
+                        .font(.systemRegular)
+                        .foregroundStyle(.primary),
+                    primaryButton: .default(Text(config.okButtonTitle)
+                        .font(.systemBold)
+                        .foregroundStyle(.blue), action: {
+                        config.onOk?()
+                        }),
+                    secondaryButton: .cancel(Text(config.cancelButtonTitle)
+                        .font(.systemRegular)
+                        .foregroundStyle(.blue), action: {
+                        config.onCancel?()
+                    })
+                )
+            }
             .toolbar(.hidden, for: .navigationBar)
+    }
+    
+    func showAlert(config: AlertConfig) {
+        alertConfig = config
     }
     
     func presentPopUp(_ content: HomeFlow.PopUp) {
@@ -57,8 +83,8 @@ private extension HomeCoordinator {
             FuelBrandPopup(onDismis: onDismiss)
         case .fuelType(let onDismiss):
             FuelTypePopup(onDismis: onDismiss)
-        case .settings(let onDismiss):
-            SettingsPopup(onDismis: onDismiss)
-        }
+        case .settings(let onDismiss, let onLocation):
+            SettingsPopup(onDismis: onDismiss, onLocaton: onLocation)
+          }
     }
 }
